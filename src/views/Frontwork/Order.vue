@@ -221,17 +221,20 @@ export default {
       this.$http.post(api, { data: { code: vm.coupon } }).then((res) => {
         // console.log(res.data)
         if (res.data.success === false) {
-          return;
+          vm.$bus.$emit('message:push','優惠券輸入有誤','danger');
+          vm.isLoading = false;
+        }else {
+          vm.$bus.$emit('message:push','已成功輸入優惠券','success');
+          vm.totalPrice = res.data.data.final_total;
+          vm.isLoading = false;
         }
-        vm.totalPrice = res.data.data.final_total;
-        vm.isLoading = false;
       });
     },
     createOrder() {
         const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/order`;
         const vm = this;
         if(vm.carts.carts.length === 0){
-          return console.log("購物車沒東西 買啥呢?")
+          return ;
         } 
         vm.isLoading = true;
         const order = vm.form;
