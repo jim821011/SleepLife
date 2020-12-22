@@ -43,12 +43,10 @@ new Vue({
 
 // 路由守衛
 router.beforeEach((to, from, next) => {
-  // console.log(to, from, next)
   if(to.meta.requiresAuth){
       const api = `${process.env.VUE_APP_APIPATH}api/user/check`;
       axios.post(api)
       .then((res)=>{
-        // console.log(res.data)
         if(res.data.success){
           next()
         }else{

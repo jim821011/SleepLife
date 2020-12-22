@@ -10,7 +10,8 @@
         class="form-control"
         placeholder="Email address"
         required
-        autofocus/>
+        autofocus
+      />
       <label for="inputPassword" class="sr-only">Password</label>
       <input
         type="password"
@@ -18,13 +19,16 @@
         id="inputPassword"
         class="form-control"
         placeholder="Password"
-        required/>
+        required
+      />
       <div class="checkbox mb-3 d-flex">
         <label>
           <input type="checkbox" value="remember-me" /> Remember me
         </label>
         <div class="ml-auto">
-          <router-link :to="{name:'Index'}" class="text-primary" href="#">首頁</router-link>
+          <router-link :to="{ name: 'Index' }" class="text-primary" href="#"
+            >首頁</router-link
+          >
         </div>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
@@ -37,79 +41,75 @@
 
 <script>
 export default {
-  name: "HelloWorld",
   data() {
     return {
-      user:{
-        username:'',
-        password:'',
-      }
+      user: {
+        username: "",
+        password: "",
+      },
     };
   },
   methods: {
     signIn() {
-      const api = `${process.env.VUE_APP_APIPATH}admin/signin`;
       const vm = this;
-      this.$http.post(api, vm.user)
-      .then((res)=>{
-        // console.log(res.data)
-        if(res.data.success){
+      const api = `${process.env.VUE_APP_APIPATH}admin/signin`;
+      vm.$http.post(api, vm.user).then((res) => {
+        if (res.data.success) {
           // 自行在前端設定cookie
           const token = res.data.token;
           const expired = res.data.expired;
-          // console.log(token,expired)
           document.cookie = `myCookie=${token}; expires=${new Date(expired)};`;
-          vm.$router.push('/admin/products')
+          vm.$router.push("/admin/products");
         }
-      })
-    }
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
-  html,
-  body {
-    height: 100%;
-  }
+html,
+body {
+  height: 100%;
+}
 
-  body {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #f5f5f5;
-  }
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
 
-  .form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-  }
-  .form-signin .checkbox {
-    font-weight: 400;
-  }
-  .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  .form-signin .form-control:focus {
-    z-index: 2;
-  }
-  .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 </style>

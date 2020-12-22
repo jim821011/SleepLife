@@ -6,10 +6,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '*',
-      redirect: '/login'
-    },
-    {
       path:'/login',
       name:'Login',
       component:()=>import('../views/Login'),
@@ -80,6 +76,10 @@ export default new Router({
           component:()=>import('@/views/Frontwork/OrderDetail'),
         },     
       ],
+    },
+    {
+      path: '*',
+      redirect: '/login'
     },
   ]
 })
