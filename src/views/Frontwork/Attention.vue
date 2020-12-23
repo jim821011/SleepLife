@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-8 mb-5">
+    <div class="mt-4 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div

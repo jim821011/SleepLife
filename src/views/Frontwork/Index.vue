@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-8">
+    <header class="container px-0 px-md-3 mt-4">
       <swiper
         ref="headSwiper"
         :options="headSwiper"
@@ -32,7 +32,7 @@
             >
               <span class="header-title">多款實用又實惠的寢具</span>
               <router-link
-                class="btn-shopping text-light"
+                class="btn btn-primary btn-lg"
                 to="/production"
               >
                 手刀搶購
@@ -141,11 +141,17 @@
     <section class="mb-md-8 my-5">
       <div class="bg-cover bg-fixed section-img-3">
         <div
-          class="bg-brightness d-flex justify-content-center align-items-center"
+          class="bg-brightness d-flex flex-column justify-content-center align-items-center"
         >
           <h2 class="section_3-title">
             想要一覺到天明?
           </h2>
+          <router-link
+            class="btn btn-primary btn-lg"
+            to="/production"
+          >
+            立刻選購去
+          </router-link>
         </div>
       </div>
     </section>
@@ -372,17 +378,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
   font-weight: bolder;
   font-size: 50px;
 }
-.btn-shopping {
-  padding: 10px 20px;
-  background-color: #376273cf;
-  border-radius: 50px;
-  font-size: 20px;
-  font-weight: bolder;
-  &:hover {
-    text-decoration: none;
-    background-color: #376273;
-  }
-}
+
 .intro-title-column {
   writing-mode: vertical-rl;
   font-size: 45px;
@@ -462,5 +458,8 @@ $main-light-b: rgba(204, 223, 234, 0.68);
 .production-title {
   color: $main-dark-b;
   font-weight: bolder;
+}
+.swiper-pagination-bullet-active {
+  background-color: #376273;
 }
 </style>

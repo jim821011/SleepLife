@@ -11,80 +11,76 @@
         </div>
       </div>
     </loading>
-    <div class="mt-9 mb-5">
+    <div class="mt-4 mb-5">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="row">
-              <div class="col-md-6">
-                <div
-                  class="bg-cover"
-                  :style="{
-                    backgroundImage: `url(${product.imageUrl})`,
-                    height: `400px`,
-                  }"
-                />
+          <div class="col-md-6">
+            <div
+              class="bg-cover"
+              :style="{
+                backgroundImage: `url(${product.imageUrl})`,
+                height: `400px`,
+              }"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-column h-100">
+              <div class="d-flex align-items-center mb-5 mt-3 mt-md-0">
+                <h2 class="title m-0 text-primary font-weight-bolder">
+                  {{ product.title }}
+                </h2>
+                <a
+                  href="#"
+                  class="ml-3"
+                  title="關注"
+                  @click.prevent="setAttention"
+                >
+                  <i
+                    class="fas fa-star fa-2x"
+                    :class="{ 'text-warning': starOpen }"
+                  />
+                </a>
               </div>
-              <div class="col-md-6">
-                <div class="d-flex flex-column h-100">
-                  <div class="d-flex align-items-center mb-5 mt-3 mt-md-0">
-                    <h2 class="title m-0 text-primary font-weight-bolder">
-                      {{ product.title }}
-                    </h2>
-                    <a
-                      href="#"
-                      class="ml-3"
-                      title="關注"
-                      @click.prevent="setAttention"
-                    >
-                      <i
-                        class="fas fa-star fa-2x"
-                        :class="{ 'text-warning': starOpen }"
-                      />
-                    </a>
-                  </div>
-                  <span
-                    class="mb-3 text-primary"
-                  >商品內容 : {{ product.description }}</span>
-                  <p class="content">
-                    {{ product.content }}
-                  </p>
-                  <span
-                    class="mt-auto mb-3 text-right text-primary font-24"
-                  >NT$ {{ product.price }}</span>
-                  <select
-                    v-model="productNum"
-                    class="form-control w-100 mb-3"
-                  >
-                    <option
-                      value=""
-                      disabled
-                      selected
-                    >
-                      請選擇購買數量
-                    </option>
-                    <option
-                      v-for="num in 10"
-                      :key="num"
-                      :value="num"
-                    >
-                      購入 {{ num }} {{ product.unit }}
-                    </option>
-                  </select>
-                  <div class="d-flex align-items-center">
-                    <small>小記 : NT$ {{ product.price * productNum }}</small>
-                    <button
-                      class="w-50 btn btn-outline-primary ml-auto"
-                      @click="addToCart"
-                    >
-                      <i
-                        v-if="status.loadingItem === product.id"
-                        class="fas fa-spinner fa-spin"
-                      />
-                      加到購物車
-                    </button>
-                  </div>
-                </div>
+              <span
+                class="mb-3 text-primary"
+              >商品內容 : {{ product.description }}</span>
+              <p class="content">
+                {{ product.content }}
+              </p>
+              <span
+                class="mt-auto mb-3 text-right text-primary font-24"
+              >NT$ {{ product.price }}</span>
+              <select
+                v-model="productNum"
+                class="form-control w-100 mb-3"
+              >
+                <option
+                  value=""
+                  disabled
+                  selected
+                >
+                  請選擇購買數量
+                </option>
+                <option
+                  v-for="num in 10"
+                  :key="num"
+                  :value="num"
+                >
+                  購入 {{ num }} {{ product.unit }}
+                </option>
+              </select>
+              <div class="d-flex align-items-center">
+                <small>小記 : NT$ {{ product.price * productNum }}</small>
+                <button
+                  class="w-50 btn btn-outline-primary ml-auto"
+                  @click="addToCart"
+                >
+                  <i
+                    v-if="status.loadingItem === product.id"
+                    class="fas fa-spinner fa-spin"
+                  />
+                  加到購物車
+                </button>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@
       <i class="fas fa-angle-up" />
     </a>
     <Alert />
-    <nav class="navbar navbar-expand-md navbar-light bg-blue-op9 fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-blue-op9 sticky-top">
       <div class="container">
         <router-link
           :to="{ name: 'Index' }"

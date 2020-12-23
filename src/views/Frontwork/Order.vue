@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-9 mb-5">
+    <div class="mt-4 mb-5">
       <div class="container px-0 px-md-3">
         <div class="row no-gutters">
           <div
@@ -37,7 +37,10 @@
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
-                        <label for="name">姓名</label>
+                        <label for="name">
+                          姓名
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           id="name"
                           v-model="form.user.name"
@@ -63,7 +66,10 @@
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
-                        <label for="email">電子信箱</label>
+                        <label for="email">
+                          電子信箱
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           id="email"
                           v-model="form.user.email"
@@ -87,7 +93,10 @@
                 >
                   <!-- 電話 -->
                   <div class="form-group">
-                    <label for="phone">電話</label>
+                    <label for="phone">
+                      電話
+                      <span class="text-danger">*</span>
+                    </label>
                     <input
                       id="phone"
                       v-model="form.user.tel"
@@ -109,7 +118,10 @@
                 >
                   <!-- 地址 -->
                   <div class="form-group">
-                    <label for="address">地址</label>
+                    <label for="address">
+                      地址
+                      <span class="text-danger">*</span>
+                    </label>
                     <input
                       id="address"
                       v-model="form.user.address"
@@ -143,6 +155,7 @@
                     type="submit"
                     :disabled="invalid"
                     class="btn btn-main-l w-50 py-3 text-primary font-24 font-weight-bolder"
+                    :class="{ 'not-allowed':invalid }"
                   >
                     送出訂單
                   </button>
@@ -322,5 +335,8 @@ export default {
 <style>
 .coupon-btn {
   min-width: 50px;
+}
+.not-allowed {
+  cursor: not-allowed;
 }
 </style>

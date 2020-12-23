@@ -49,7 +49,14 @@
 
 <script>
 export default {
-  props: ['page'],
+  props: {
+    page: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
   methods: {
     changePage(item) {
       this.$emit('changePage', item);

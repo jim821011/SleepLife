@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-9 mb-5">
+    <div class="mt-4 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -136,10 +136,61 @@
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div
+      id="payModal"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="payModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5
+              id="exampleModalLabel"
+              class="modal-title text-primary font-weight-bolder"
+            >
+              結帳成功
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              查看明細
+            </button>
+            <router-link
+              :to="{ name: 'Index' }"
+              class="btn btn-primary"
+              data-dismiss="modal"
+            >
+              回首頁
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   data() {
     return {
@@ -171,6 +222,7 @@ export default {
       vm.$http.post(api).then((res) => {
         if (res.data.success) {
           vm.getOrder();
+          $('#payModal').modal('show');
           vm.isLoading = false;
         } else {
           vm.$bus.$emit('message:push', '付款失敗', 'danger');
@@ -182,5 +234,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 </style>

@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-8">
+    <header class="container px-0 px-md-3 mt-4">
       <div class="bg-cover d-flex justify-content-end header-img" />
     </header>
 
