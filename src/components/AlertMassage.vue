@@ -1,17 +1,17 @@
 <template>
   <div class="message-alert">
     <div
-      class="alert alert-dismissible"
-      :class="'alert-' + item.status"
       v-for="(item, i) in messages"
       :key="i"
+      class="alert alert-dismissible"
+      :class="'alert-' + item.status"
     >
       {{ item.message }}
       <button
         type="button"
         class="close"
-        @click="removeMessage(i)"
         aria-label="Close"
+        @click="removeMessage(i)"
       >
         <span aria-hidden="true">&times;</span>
       </button>
@@ -25,6 +25,17 @@ export default {
     return {
       messages: [],
     };
+  },
+  created() {
+    const vm = this;
+
+    // 自定義名稱 'messsage:push'
+    // message: 傳入參數
+    // status: 樣式，預設值為 warning
+    vm.$bus.$on('message:push', (message, status = 'warning') => {
+      vm.updateMessage(message, status);
+    });
+    // vm.$bus.$emit('message:push');
   },
   methods: {
     updateMessage(message, status) {
@@ -49,17 +60,6 @@ export default {
         });
       }, 1500);
     },
-  },
-  created() {
-    const vm = this;
-
-    // 自定義名稱 'messsage:push'
-    // message: 傳入參數
-    // status: 樣式，預設值為 warning
-    vm.$bus.$on("message:push", (message, status = "warning") => {
-      vm.updateMessage(message, status);
-    });
-    // vm.$bus.$emit('message:push');
   },
 };
 </script>

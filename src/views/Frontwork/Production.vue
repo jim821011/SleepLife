@@ -3,16 +3,16 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
     <header class="container px-0 px-md-3 mt-8">
-      <div class="bg-cover d-flex justify-content-end header-img"></div>
+      <div class="bg-cover d-flex justify-content-end header-img" />
     </header>
 
     <section class="container mb-5 mt-md-4 mt-4">
@@ -27,26 +27,24 @@
                 <a
                   href="#"
                   class="list-group-item list-group-item-action"
-                  @click.prevent="sectionActive = ''"
                   :class="{ active: sectionActive == '' }"
+                  @click.prevent="sectionActive = ''"
                 >
                   所有寢具 {{ `(${allProductsNum})` }}
                 </a>
                 <a
                   href="#"
                   class="list-group-item list-group-item-action list-group-item-action"
-                  @click.prevent="sectionActive = '床墊'"
                   :class="{ active: sectionActive == '床墊' }"
+                  @click.prevent="sectionActive = '床墊'"
                 >
-                  精選床墊 {{ `(${list_1Num})` }}</a
-                >
+                  精選床墊 {{ `(${list_1Num})` }}</a>
                 <a
                   href="#"
                   class="list-group-item list-group-item-action"
-                  @click.prevent="sectionActive = '枕頭'"
                   :class="{ active: sectionActive == '枕頭' }"
-                  >舒眠枕頭 {{ `(${list_2Num})` }}</a
-                >
+                  @click.prevent="sectionActive = '枕頭'"
+                >舒眠枕頭 {{ `(${list_2Num})` }}</a>
               </div>
             </div>
           </div>
@@ -54,9 +52,9 @@
         <div class="col-md-9">
           <div class="row">
             <div
-              class="col-md-6 col-lg-4"
               v-for="item in productFilter"
               :key="item.id"
+              class="col-md-6 col-lg-4"
             >
               <div class="tool-card mt-4">
                 <router-link :to="{ path: `product_detail/${item.id}` }">
@@ -83,26 +81,25 @@
                 <div class="d-flex align-items-center">
                   <a
                     href="#"
-                    @click.prevent="setAttention(item)"
                     class="btn btn-primary btn-lg border-0 w-25"
                     title="關注"
+                    @click.prevent="setAttention(item)"
                   >
                     <i
                       class="fas fa-star"
                       :class="{ 'text-warning': item.attentionStar }"
-                    ></i>
+                    />
                   </a>
                   <a
                     href="#"
-                    @click.prevent="addToCart(item)"
                     class="btn btn-main-l btn-lg border-0 text-primary w-75 font-weight-bolder"
+                    @click.prevent="addToCart(item)"
                   >
                     <i
-                      class="fas fa-spinner fa-spin"
                       v-if="status.loadingItem === item.id"
-                    ></i>
-                    加入購物車</a
-                  >
+                      class="fas fa-spinner fa-spin"
+                    />
+                    加入購物車</a>
                 </div>
               </div>
             </div>
@@ -120,46 +117,45 @@ export default {
       products: [],
       carts: [],
       status: {
-        loadingItem: "",
+        loadingItem: '',
       },
       allProductsNum: 0,
-      sectionActive: "",
+      sectionActive: '',
       isLoading: false,
-      attentionArr: JSON.parse(localStorage.getItem("attention")) || [],
+      attentionArr: JSON.parse(localStorage.getItem('attention')) || [],
     };
   },
   computed: {
     productFilter() {
       this.products.forEach((item) => {
+        const arr = item;
         this.attentionArr.forEach((i) => {
           if (item.id === i) {
-            item.attentionStar = true;
+            arr.attentionStar = true;
           }
         });
       });
 
-      if (this.sectionActive === "") {
+      if (this.sectionActive === '') {
         return this.products;
-      } else {
-        return this.products.filter((item) => {
-          return item.category === this.sectionActive;
-        });
       }
+      return this.products.filter((item) => item.category === this.sectionActive);
     },
     list_1Num() {
       let filterProduct = [];
-      filterProduct = this.products.filter((item) => {
-        return item.category === "床墊";
-      });
+      filterProduct = this.products.filter((item) => item.category === '床墊');
       return filterProduct.length;
     },
     list_2Num() {
       let filterProduct = [];
-      filterProduct = this.products.filter((item) => {
-        return item.category === "枕頭";
-      });
+      filterProduct = this.products.filter((item) => item.category === '枕頭');
       return filterProduct.length;
     },
+  },
+  created() {
+    this.getProduction();
+    this.getCart();
+    this.sectionActive = this.$route.params.list || '';
   },
   methods: {
     getProduction() {
@@ -169,7 +165,7 @@ export default {
       vm.$http.get(api).then((res) => {
         vm.products = res.data.products;
         vm.products.forEach((item) => {
-          vm.$set(item, "attentionStar", false);
+          vm.$set(item, 'attentionStar', false);
         });
         vm.allProductsNum = res.data.products.length;
         vm.isLoading = false;
@@ -177,17 +173,18 @@ export default {
     },
     setAttention(item) {
       const vm = this;
-      let index = vm.attentionArr.indexOf(item.id);
+      const arr = item;
+      const index = vm.attentionArr.indexOf(item.id);
       if (index === -1) {
-        item.attentionStar = true;
+        arr.attentionStar = true;
         vm.attentionArr.push(item.id);
-        vm.$bus.$emit("message:push", "已加入關注", "success");
+        vm.$bus.$emit('message:push', '已加入關注', 'success');
       } else {
-        item.attentionStar = false;
+        arr.attentionStar = false;
         vm.attentionArr.splice(index, 1);
-        vm.$bus.$emit("message:push", "已取消關注", "danger");
+        vm.$bus.$emit('message:push', '已取消關注', 'danger');
       }
-      localStorage.setItem("attention", JSON.stringify(this.attentionArr));
+      localStorage.setItem('attention', JSON.stringify(this.attentionArr));
     },
     getCart() {
       const vm = this;
@@ -205,7 +202,8 @@ export default {
         }
       });
       if (num >= 1) {
-        return vm.$bus.$emit("message:push", "購物車已有相同商品", "danger");
+        vm.$bus.$emit('message:push', '購物車已有相同商品', 'danger');
+        return;
       }
       vm.status.loadingItem = item.id;
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
@@ -213,15 +211,10 @@ export default {
         .post(api, { data: { product_id: `${item.id}`, qty: 1 } })
         .then(() => {
           vm.getCart();
-          vm.status.loadingItem = "";
-          vm.$bus.$emit("message:push", "成功加入購物車", "success");
+          vm.status.loadingItem = '';
+          vm.$bus.$emit('message:push', '成功加入購物車', 'success');
         });
     },
-  },
-  created() {
-    this.getProduction();
-    this.getCart();
-    this.sectionActive = this.$route.params.list || "";
   },
 };
 </script>

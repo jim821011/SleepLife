@@ -7,18 +7,25 @@
           :class="{ disabled: !page.has_pre }"
           @click.prevent="changePage(page.current_page - 1)"
         >
-          <a class="page-link" href="#" aria-label="Previous">
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Previous"
+          >
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         <li
-          class="page-item"
           v-for="item in page.total_pages"
           :key="item"
+          class="page-item"
           :class="{ active: page.current_page === item }"
           @click.prevent="changePage(item)"
         >
-          <a class="page-link" href="#">
+          <a
+            class="page-link"
+            href="#"
+          >
             {{ item }}
           </a>
         </li>
@@ -27,7 +34,11 @@
           :class="{ disabled: !page.has_next }"
           @click.prevent="changePage(page.current_page + 1)"
         >
-          <a class="page-link" href="#" aria-label="Next">
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Next"
+          >
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
@@ -38,10 +49,10 @@
 
 <script>
 export default {
-  props: ["page"],
+  props: ['page'],
   methods: {
     changePage(item) {
-      this.$emit("changePage", item);
+      this.$emit('changePage', item);
     },
   },
 };

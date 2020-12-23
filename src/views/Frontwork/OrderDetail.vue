@@ -3,11 +3,11 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
@@ -15,28 +15,62 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <form class="shadow p-4" @submit.prevent="payOrder">
-              <h2 class="text-center font-weight-bolder mb-5">確認付款</h2>
+            <form
+              class="shadow p-4"
+              @submit.prevent="payOrder"
+            >
+              <h2 class="text-center font-weight-bolder mb-5">
+                確認付款
+              </h2>
 
               <table class="table table-borderless mb-5">
                 <thead class="bg-main-l">
                   <tr>
                     <th>品名</th>
-                    <th width="100">數量</th>
-                    <th width="120" class="text-right">總價</th>
+                    <th
+                      width="100"
+                    >
+                      數量
+                    </th>
+                    <th
+                      width="120"
+                      class="text-right"
+                    >
+                      總價
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in order.products" :key="item.id">
-                    <td class="font-weight-bolder">{{ item.product.title }}</td>
+                  <tr
+                    v-for="item in order.products"
+                    :key="item.id"
+                  >
+                    <td
+                      class="font-weight-bolder"
+                    >
+                      {{ item.product.title }}
+                    </td>
                     <td>{{ item.qty }}/{{ item.product.unit }}</td>
-                    <td class="text-right">${{ item.final_total }}</td>
+                    <td
+                      class="text-right"
+                    >
+                      ${{ item.final_total }}
+                    </td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="2" class="text-right">總計</td>
-                    <td class="text-right">${{ order.total }}</td>
+                    <td
+                      colspan="2"
+                      class="text-right"
+                    >
+                      總計
+                    </td>
+                    <td
+                      class="text-right"
+                    >
+                      ${{ order.total }}
+                    </td>
                   </tr>
                 </tfoot>
               </table>
@@ -44,7 +78,11 @@
               <table class="table mb-5">
                 <tbody>
                   <tr>
-                    <th width="130">Email</th>
+                    <th
+                      width="130"
+                    >
+                      Email
+                    </th>
                     <td>{{ order.user.email }}</td>
                   </tr>
                   <tr>
@@ -61,8 +99,18 @@
                   </tr>
                   <tr>
                     <th>付款狀態</th>
-                    <td class="text-danger" v-if="!order.is_paid">尚未付款</td>
-                    <td class="text-success" v-else>已付款</td>
+                    <td
+                      v-if="!order.is_paid"
+                      class="text-danger"
+                    >
+                      尚未付款
+                    </td>
+                    <td
+                      v-else
+                      class="text-success"
+                    >
+                      已付款
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -75,9 +123,13 @@
                 >
                   確認付款
                 </button>
-                <router-link v-else to="/production" class="btn btn-primary"
-                  >繼續選購</router-link
+                <router-link
+                  v-else
+                  to="/production"
+                  class="btn btn-primary"
                 >
+                  繼續選購
+                </router-link>
               </div>
             </form>
           </div>
@@ -91,7 +143,7 @@
 export default {
   data() {
     return {
-      orderId: "",
+      orderId: '',
       order: {
         user: {},
       },
@@ -121,7 +173,7 @@ export default {
           vm.getOrder();
           vm.isLoading = false;
         } else {
-          console.log("付款失敗");
+          vm.$bus.$emit('message:push', '付款失敗', 'danger');
           vm.isLoading = false;
         }
       });

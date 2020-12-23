@@ -3,16 +3,19 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
     <header class="container px-0 px-md-3 mt-8">
-      <swiper ref="headSwiper" :options="headSwiper">
+      <swiper
+        ref="headSwiper"
+        :options="headSwiper"
+      >
         <swiper-slide>
           <div class="bg-cover bg-img-1">
             <div
@@ -28,9 +31,12 @@
               class="bg-brightness d-flex flex-column justify-content-center align-items-center"
             >
               <span class="header-title">多款實用又實惠的寢具</span>
-              <router-link class="btn-shopping text-light" to="/production"
-                >手刀搶購</router-link
+              <router-link
+                class="btn-shopping text-light"
+                to="/production"
               >
+                手刀搶購
+              </router-link>
             </div>
           </div>
         </swiper-slide>
@@ -43,23 +49,28 @@
             </div>
           </div>
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div
+          slot="pagination"
+          class="swiper-pagination"
+        />
       </swiper>
     </header>
 
     <section class="my-md-9">
       <div class="my-5 d-md-none">
-        <h2 class="intro-title-row text-center">為什麼要睡好床?</h2>
+        <h2 class="intro-title-row text-center">
+          為什麼要睡好床?
+        </h2>
       </div>
       <div class="bg-blue-l">
         <div class="container">
           <div
-            class="row animate__animated animate__slowe"
             ref="fadeInLeft"
+            class="row animate__animated animate__slowe"
             :class="{ animate__fadeInLeft: fadeInLeftShow }"
           >
             <div class="col-md-6 intro-overflow">
-              <div class="bg-cover-l intro-img h-100 section-img-1"></div>
+              <div class="bg-cover-l intro-img h-100 section-img-1" />
             </div>
             <div class="col-md-6">
               <div class="row justify-content-end flex-nowrap">
@@ -85,22 +96,29 @@
 
     <section class="my-md-9">
       <div class="my-5 d-md-none">
-        <h2 class="intro-title-row text-center">良好的睡眠品質有何好處?</h2>
+        <h2 class="intro-title-row text-center">
+          良好的睡眠品質有何好處?
+        </h2>
       </div>
       <div class="bg-blue-l">
         <div class="container">
           <div
-            class="row animate__animated animate__slowe"
             ref="fadeInRight"
+            class="row animate__animated animate__slowe"
             :class="{ animate__fadeInRight: fadeInRightShow }"
           >
             <div class="col-md-6 order-2 order-md-1">
               <div class="row flex-row-reverse flex-nowrap">
                 <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
-                    良好的睡眠品質<br /><span class="intro-title-space"
-                      >有何好處</span
-                    ><span class="intro-title-qus">?</span>
+                    良好的睡眠品質
+                    <br>
+                    <span class="intro-title-space">
+                      有何好處
+                    </span>
+                    <span class="intro-title-qus">
+                      ?
+                    </span>
                   </h2>
                 </div>
                 <div class="intro-text">
@@ -113,7 +131,7 @@
               </div>
             </div>
             <div class="col-md-6 intro-overflow order-1 order-md-2">
-              <div class="bg-cover-b intro-img h-100 section-img-2"></div>
+              <div class="bg-cover-b intro-img h-100 section-img-2" />
             </div>
           </div>
         </div>
@@ -125,7 +143,9 @@
         <div
           class="bg-brightness d-flex justify-content-center align-items-center"
         >
-          <h2 class="section_3-title">想要一覺到天明?</h2>
+          <h2 class="section_3-title">
+            想要一覺到天明?
+          </h2>
         </div>
       </div>
     </section>
@@ -133,16 +153,26 @@
     <section class="mb-5 mb-md-6">
       <div class="container">
         <div class="d-flex align-items-start">
-          <h2 class="production-title mb-3">最新商品</h2>
-          <span class="badge badge-pill badge-danger badge-new">New</span>
+          <h2 class="production-title mb-3">
+            最新商品
+          </h2>
+          <span class="badge badge-pill badge-danger badge-new">
+            New
+          </span>
         </div>
         <div
           class="row"
           @mouseover="shopswiperStop"
           @mouseleave="shopswiperStart"
         >
-          <swiper ref="shopSwiper" :options="shopSwiper">
-            <swiper-slide v-for="item in NewFiveProduction" :key="item.id">
+          <swiper
+            ref="shopSwiper"
+            :options="shopSwiper"
+          >
+            <swiper-slide
+              v-for="item in NewFiveProduction"
+              :key="item.id"
+            >
               <div class="col">
                 <div class="tool-card mb-4 mb-md-0">
                   <router-link :to="{ path: `product_detail/${item.id}` }">
@@ -154,7 +184,8 @@
                       }"
                     >
                       <div
-                        class="production-img d-flex justify-content-center h-100 align-items-center"
+                        class="production-img d-flex justify-content-center
+                        h-100 align-items-center"
                       >
                         商品資訊
                       </div>
@@ -170,8 +201,14 @@
               </div>
             </swiper-slide>
 
-            <div class="swiper-button-next" slot="button-next"></div>
-            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div
+              slot="button-next"
+              class="swiper-button-next"
+            />
+            <div
+              slot="button-prev"
+              class="swiper-button-prev"
+            />
           </swiper>
         </div>
       </div>
@@ -180,14 +217,15 @@
 </template>
 
 <script>
-import $ from "jquery";
+import $ from 'jquery';
+
 export default {
   data() {
     return {
       headSwiper: {
         // 控制表頭幻燈片
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         },
         autoplay: {
@@ -196,17 +234,17 @@ export default {
         },
         speed: 1500,
         loop: true,
-        effect: "fade",
+        effect: 'fade',
       },
       shopSwiper: {
         // 最新商品幻燈片
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
         slidesPerView: 1, // 初始顯示數量
         breakpoints: {
@@ -241,18 +279,15 @@ export default {
     },
     NewFiveProduction() {
       // 只取前5樣最新加入的商品
-      let filterArr = [...this.newProduction].reverse();
-      return filterArr.filter((item, i) => {
-        if (i <= 4) {
-          return item;
-        }
-      });
+      const filterArr = [...this.newProduction].reverse()
+        .filter((item, i) => i <= 4);
+      return filterArr;
     },
   },
   mounted() {
     this.headswiper.slideTo(1, 1000, false);
     this.catchHeight();
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
     this.getNewProduction();
   },
   methods: {

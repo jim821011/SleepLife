@@ -3,54 +3,62 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
     <div class="mt-8 mb-5">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col mt-9" v-if="cartLen === 0">
+          <div
+            v-if="cartLen === 0"
+            class="col mt-9"
+          >
             <h2 class="text-center text-primary font-weight-bolder">
               購物車內無商品
             </h2>
             <div class="text-center mt-5">
               <a
                 href="#"
-                @click.prevent="selectList('')"
                 class="btn btn-primary font-weight-bolder"
+                @click.prevent="selectList('')"
               >
-                <i class="fas fa-angle-double-left"></i>
+                <i class="fas fa-angle-double-left" />
                 繼續選購
               </a>
             </div>
           </div>
-          <div class="col-md-10" v-else>
-            <h2 class="text-primary font-weight-bolder">已選擇商品</h2>
+          <div
+            v-else
+            class="col-md-10"
+          >
+            <h2 class="text-primary font-weight-bolder">
+              已選擇商品
+            </h2>
             <div
-              class="d-flex flex-column flex-md-row align-items-md-center mt-4 text-primary"
               v-for="item in carts.carts"
               :key="item.id"
+              class="d-flex flex-column flex-md-row align-items-md-center mt-4 text-primary"
             >
               <div class="d-flex flex-grow-1">
                 <div
                   class="cart-img bg-cover mr-3 flex-grow-1 flex-md-grow-0"
                   :style="{ backgroundImage: `url(${item.product.imageUrl})` }"
-                ></div>
+                />
                 <div
                   class="d-flex flex-column flex-md-row align-items-md-center flex-md-grow-1"
                 >
                   <div class="mr-auto">
-                    <h5 class="font-weight-bolder">{{ item.product.title }}</h5>
-                    <span
-                      >NT$ {{ item.product.price }}/{{
-                        item.product.unit
-                      }}</span
-                    >
+                    <h5 class="font-weight-bolder">
+                      {{ item.product.title }}
+                    </h5>
+                    <span>NT$ {{ item.product.price }}/{{
+                      item.product.unit
+                    }}</span>
                   </div>
                   <div class="cart-form">
                     <button
@@ -64,7 +72,7 @@
                       class="border-main-l cart-input"
                       :value="item.qty"
                       disabled
-                    />
+                    >
                     <button
                       class="btn btn-light border-main-l btn-lg text-primary"
                       @click="addToCart(item)"
@@ -87,33 +95,42 @@
               </div>
               <a
                 href="#"
-                @click.prevent="deletCart(item.id)"
                 class="btn d-none d-md-block text-danger"
+                @click.prevent="deletCart(item.id)"
               >
-                <i class="fas fa-trash"></i>
+                <i class="fas fa-trash" />
               </a>
             </div>
             <div
               class="d-flex mt-5 justify-content-end align-items-center border-top pt-3"
             >
-              <span class="text-primary font-weight-bolder mr-3"
-                >總金額 : NT$ {{ totalPrice }}</span
+              <span
+                class="text-primary font-weight-bolder mr-3"
+              >總金額 : NT$ {{ totalPrice }}</span>
+              <router-link
+                to="/order"
+                class="btn btn-primary d-block"
               >
-              <router-link to="/order" class="btn btn-primary d-block"
-                >結帳去</router-link
-              >
+                結帳去
+              </router-link>
             </div>
           </div>
         </div>
 
-        <h2 class="mt-5 text-primary font-weight-bolder">商品導覽</h2>
+        <h2 class="mt-5 text-primary font-weight-bolder">
+          商品導覽
+        </h2>
         <div class="row mt-3">
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('')">
+              <a
+                href="#"
+                @click.prevent="selectList('')"
+              >
                 <div class="product-intro product-img-1">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     全部寢具
                   </div>
@@ -123,10 +140,14 @@
           </div>
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('床墊')">
+              <a
+                href="#"
+                @click.prevent="selectList('床墊')"
+              >
                 <div class="product-intro product-img-2">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     床墊
                   </div>
@@ -136,10 +157,14 @@
           </div>
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('枕頭')">
+              <a
+                href="#"
+                @click.prevent="selectList('枕頭')"
+              >
                 <div class="product-intro product-img-3">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     枕頭
                   </div>
@@ -159,14 +184,14 @@ export default {
     return {
       isLoading: false,
       carts: [],
-      cartLen: "",
+      cartLen: '',
       totalPrice: 0,
     };
   },
+  computed: {},
   created() {
     this.getCart();
   },
-  computed: {},
   methods: {
     getCart() {
       const vm = this;
@@ -225,9 +250,9 @@ export default {
     },
     selectList(list) {
       this.$router.push({
-        name: "Production",
+        name: 'Production',
         params: {
-          list: list,
+          list,
         },
       });
     },

@@ -3,46 +3,63 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
     <div class="mt-8 mb-5">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col mt-9" v-if="products.length === 0">
+          <div
+            v-if="products.length === 0"
+            class="col mt-9"
+          >
             <h2 class="text-center text-primary font-weight-bolder">
               目前並無關注商品
             </h2>
             <div class="text-center mt-5">
               <a
                 href="#"
-                @click.prevent="selectList('')"
                 class="btn btn-primary font-weight-bolder"
+                @click.prevent="selectList('')"
               >
-                <i class="fas fa-angle-double-left"></i>
+                <i class="fas fa-angle-double-left" />
                 繼續選購
               </a>
             </div>
           </div>
-          <div class="col-md-10" v-else>
-            <h2 class="text-primary font-weight-bolder">關注商品</h2>
+          <div
+            v-else
+            class="col-md-10"
+          >
+            <h2 class="text-primary font-weight-bolder">
+              關注商品
+            </h2>
             <table class="table">
               <thead>
                 <tr>
-                  <th width="150"></th>
+                  <th width="150" />
                   <th>名稱</th>
-                  <th width="150">價格</th>
-                  <th width="120">加入購物車</th>
-                  <th width="75">刪除</th>
+                  <th width="150">
+                    價格
+                  </th>
+                  <th width="120">
+                    加入購物車
+                  </th>
+                  <th width="75">
+                    刪除
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in products" :key="item.id">
+                <tr
+                  v-for="item in products"
+                  :key="item.id"
+                >
                   <td>
                     <router-link :to="{ path: `product_detail/${item.id}` }">
                       <div
@@ -51,21 +68,25 @@
                           backgroundImage: `url(${item.imageUrl})`,
                           height: '100px',
                         }"
-                      ></div>
+                      />
                     </router-link>
                   </td>
-                  <td class="align-middle">{{ item.title }}</td>
-                  <td class="align-middle">NT$ {{ item.price }}</td>
+                  <td class="align-middle">
+                    {{ item.title }}
+                  </td>
+                  <td class="align-middle">
+                    NT$ {{ item.price }}
+                  </td>
                   <td class="align-middle">
                     <button
                       class="btn btn-outline-primary btn-sm w-100"
                       @click="addToCart(item)"
                     >
                       <i
-                        class="fas fa-spinner fa-spin"
                         v-if="status.loadingItem === item.id"
-                      ></i>
-                      <i class="fas fa-shopping-cart"></i>
+                        class="fas fa-spinner fa-spin"
+                      />
+                      <i class="fas fa-shopping-cart" />
                     </button>
                   </td>
                   <td class="align-middle">
@@ -82,14 +103,20 @@
           </div>
         </div>
 
-        <h2 class="mt-5 text-primary font-weight-bolder">商品導覽</h2>
+        <h2 class="mt-5 text-primary font-weight-bolder">
+          商品導覽
+        </h2>
         <div class="row mt-3">
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('')">
+              <a
+                href="#"
+                @click.prevent="selectList('')"
+              >
                 <div class="product-intro product-img-1">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     全部寢具
                   </div>
@@ -99,10 +126,14 @@
           </div>
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('床墊')">
+              <a
+                href="#"
+                @click.prevent="selectList('床墊')"
+              >
                 <div class="product-intro product-img-2">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     床墊
                   </div>
@@ -112,10 +143,14 @@
           </div>
           <div class="col-md-4">
             <div class="product-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="selectList('枕頭')">
+              <a
+                href="#"
+                @click.prevent="selectList('枕頭')"
+              >
                 <div class="product-intro product-img-3">
                   <div
-                    class="product-intro-filter d-flex justify-content-center h-100 align-items-center"
+                    class="product-intro-filter d-flex justify-content-center
+                    h-100 align-items-center"
                   >
                     枕頭
                   </div>
@@ -137,9 +172,9 @@ export default {
       products: [],
       carts: [],
       status: {
-        loadingItem: "",
+        loadingItem: '',
       },
-      attentionArr: JSON.parse(localStorage.getItem("attention")) || [],
+      attentionArr: JSON.parse(localStorage.getItem('attention')) || [],
     };
   },
   created() {
@@ -159,17 +194,17 @@ export default {
       });
     },
     removeAttention(item) {
-      let num_1 = this.attentionArr.indexOf(item.id);
-      let num_2 = this.products.indexOf(item);
-      this.attentionArr.splice(num_1, 1);
-      this.products.splice(num_2, 1);
-      localStorage.setItem("attention", JSON.stringify(this.attentionArr));
+      const numOne = this.attentionArr.indexOf(item.id);
+      const numTwo = this.products.indexOf(item);
+      this.attentionArr.splice(numOne, 1);
+      this.products.splice(numTwo, 1);
+      localStorage.setItem('attention', JSON.stringify(this.attentionArr));
     },
     selectList(list) {
       this.$router.push({
-        name: "Production",
+        name: 'Production',
         params: {
-          list: list,
+          list,
         },
       });
     },
@@ -189,15 +224,16 @@ export default {
         }
       });
       if (num >= 1) {
-        return vm.$bus.$emit("message:push", "購物車已有相同商品", "danger");
+        vm.$bus.$emit('message:push', '購物車已有相同商品', 'danger');
+        return;
       }
       vm.status.loadingItem = item.id;
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       vm.$http
         .post(api, { data: { product_id: `${item.id}`, qty: 1 } })
         .then(() => {
-          vm.status.loadingItem = "";
-          vm.$bus.$emit("message:push", "成功加入購物車", "success");
+          vm.status.loadingItem = '';
+          vm.$bus.$emit('message:push', '成功加入購物車', 'success');
           vm.getCart();
         });
     },

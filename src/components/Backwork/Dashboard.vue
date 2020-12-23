@@ -1,12 +1,15 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar />
     <Alert />
     <div class="container-fluid">
       <div class="row">
-        <Sidebar></Sidebar>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <router-view></router-view>
+        <Sidebar />
+        <main
+          role="main"
+          class="col-md-9 ml-sm-auto col-lg-10 px-4"
+        >
+          <router-view />
         </main>
       </div>
     </div>
@@ -14,9 +17,9 @@
 </template>
 
 <script>
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
-import Alert from "../AlertMassage";
+import Navbar from './Navbar.vue';
+import Sidebar from './Sidebar.vue';
+import Alert from '../AlertMassage.vue';
 
 export default {
   components: {
@@ -27,8 +30,8 @@ export default {
   created() {
     const myCookie = document.cookie.replace(
       /(?:(?:^|.*;\s*)myCookie\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    ); 
+      '$1',
+    );
     this.$http.defaults.headers.common.Authorization = myCookie;
   },
 };

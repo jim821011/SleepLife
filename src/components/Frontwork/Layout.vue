@@ -1,14 +1,23 @@
 <template>
   <div>
-    <a class="go-top text-light" href="#" @click.prevent="goTop">
-      <i class="fas fa-angle-up"></i>
+    <a
+      class="go-top text-light"
+      href="#"
+      @click.prevent="goTop"
+    >
+      <i class="fas fa-angle-up" />
     </a>
     <Alert />
     <nav class="navbar navbar-expand-md navbar-light bg-blue-op9 fixed-top">
       <div class="container">
-        <router-link :to="{ name: 'Index' }" class="py-1">
-          <h1 class="sr-only">Sleep Life</h1>
-          <div class="bg-cover logo"></div>
+        <router-link
+          :to="{ name: 'Index' }"
+          class="py-1"
+        >
+          <h1 class="sr-only">
+            Sleep Life
+          </h1>
+          <div class="bg-cover logo" />
         </router-link>
         <button
           class="navbar-toggler border-0"
@@ -19,45 +28,55 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon text-light"></span>
+          <span class="navbar-toggler-icon text-light" />
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          id="navbarSupportedContent"
+          class="collapse navbar-collapse"
+        >
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li
+              class="nav-item"
+              @click="closeNavbar"
+            >
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/production"
-                >商品列表</router-link
               >
+                商品列表
+              </router-link>
             </li>
             <li class="nav-item">
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/attention"
-                >我的關注</router-link
               >
+                我的關注
+              </router-link>
             </li>
             <li class="nav-item">
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/cart"
-                >購物車</router-link
               >
+                購物車
+              </router-link>
             </li>
             <li class="nav-item">
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/login"
-                >登入</router-link
               >
+                登入
+              </router-link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <router-view></router-view>
+    <router-view />
 
     <footer>
       <div class="bg-blue py-2">
@@ -66,27 +85,43 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex flex-column align-items-start">
-                  <span class="text-light" href="#">07-1234-5678</span>
-                  <a class="text-light" href="#">sweetaste@email.com</a>
-                  <span class="text-light" href="#"
-                    >800 高雄市新興區幸福路 520 號</span
-                  >
+                  <span
+                    class="text-light"
+                    href="#"
+                  >07-1234-5678</span>
+                  <a
+                    class="text-light"
+                    href="#"
+                  >sweetaste@email.com</a>
+                  <span
+                    class="text-light"
+                    href="#"
+                  >800 高雄市新興區幸福路 520 號</span>
                   <div class="d-flex">
-                    <a href="#" class="text-light">
-                      <i class="fab fa-facebook-square fa-2x"></i>
+                    <a
+                      href="#"
+                      class="text-light"
+                    >
+                      <i class="fab fa-facebook-square fa-2x" />
                     </a>
-                    <a href="#" class="text-light ml-1">
-                      <i class="fab fa-twitter-square fa-2x"></i>
+                    <a
+                      href="#"
+                      class="text-light ml-1"
+                    >
+                      <i class="fab fa-twitter-square fa-2x" />
                     </a>
-                    <a href="#" class="text-light ml-1">
-                      <i class="fab fa-instagram-square fa-2x"></i>
+                    <a
+                      href="#"
+                      class="text-light ml-1"
+                    >
+                      <i class="fab fa-instagram-square fa-2x" />
                     </a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="ml-auto align-self-center">
-              <div class="bg-cover logo mb-2"></div>
+              <div class="bg-cover logo mb-2" />
             </div>
           </div>
         </div>
@@ -96,35 +131,38 @@
 </template>
 
 <script>
-import $ from "jquery";
-import Alert from "../AlertMassage";
+import $ from 'jquery';
+import Alert from '../AlertMassage.vue';
+
 export default {
-  data() {
-    return {};
-  },
   components: {
     Alert,
   },
+  data() {
+    return {};
+  },
   mounted() {
-    window.addEventListener("scroll", this.goTopShow);
+    window.addEventListener('scroll', this.goTopShow);
   },
   methods: {
     goTopShow() {
-      let scrollTop =
-        document.documentElement.scrollTop ||
-        window.pageYOffset ||
-        document.body.scrollTop; //相容瀏覽器
+      const scrollTop = document.documentElement.scrollTop
+        || window.pageYOffset
+        || document.body.scrollTop; // 相容瀏覽器
       if (scrollTop > 300) {
-        //滾動高度可調
-        $(".go-top").show();
+        // 滾動高度可調
+        $('.go-top').show();
       } else {
-        $(".go-top").hide();
+        $('.go-top').hide();
       }
     },
     goTop() {
-      $("html, body").stop().animate({
+      $('html, body').stop().animate({
         scrollTop: 0,
       });
+    },
+    closeNavbar() {
+      $('.navbar-toggler').click();
     },
   },
 };
@@ -135,6 +173,7 @@ export default {
   background-image: url(../../assets/images/logo_1.svg);
   width: 200px;
   height: 55px;
+  transform: translateY(5px);
 }
 .go-top {
   position: fixed;

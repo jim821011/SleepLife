@@ -3,11 +3,11 @@
     <loading :active.sync="isLoading">
       <div class="loadingio-spinner-ellipsis-aby2qqypx7">
         <div class="ldio-gx7c5s03jv">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
       </div>
     </loading>
@@ -23,7 +23,7 @@
                     backgroundImage: `url(${product.imageUrl})`,
                     height: `400px`,
                   }"
-                ></div>
+                />
               </div>
               <div class="col-md-6">
                 <div class="d-flex flex-column h-100">
@@ -34,25 +34,40 @@
                     <a
                       href="#"
                       class="ml-3"
-                      @click.prevent="setAttention"
                       title="關注"
+                      @click.prevent="setAttention"
                     >
                       <i
                         class="fas fa-star fa-2x"
                         :class="{ 'text-warning': starOpen }"
-                      ></i>
+                      />
                     </a>
                   </div>
-                  <span class="mb-3 text-primary"
-                    >商品內容 : {{ product.description }}</span
+                  <span
+                    class="mb-3 text-primary"
+                  >商品內容 : {{ product.description }}</span>
+                  <p class="content">
+                    {{ product.content }}
+                  </p>
+                  <span
+                    class="mt-auto mb-3 text-right text-primary font-24"
+                  >NT$ {{ product.price }}</span>
+                  <select
+                    v-model="productNum"
+                    class="form-control w-100 mb-3"
                   >
-                  <p class="content">{{ product.content }}</p>
-                  <span class="mt-auto mb-3 text-right text-primary font-24"
-                    >NT$ {{ product.price }}</span
-                  >
-                  <select class="form-control w-100 mb-3" v-model="productNum">
-                    <option value="" disabled selected>請選擇購買數量</option>
-                    <option v-for="num in 10" :key="num" :value="num">
+                    <option
+                      value=""
+                      disabled
+                      selected
+                    >
+                      請選擇購買數量
+                    </option>
+                    <option
+                      v-for="num in 10"
+                      :key="num"
+                      :value="num"
+                    >
                       購入 {{ num }} {{ product.unit }}
                     </option>
                   </select>
@@ -63,9 +78,9 @@
                       @click="addToCart"
                     >
                       <i
-                        class="fas fa-spinner fa-spin"
                         v-if="status.loadingItem === product.id"
-                      ></i>
+                        class="fas fa-spinner fa-spin"
+                      />
                       加到購物車
                     </button>
                   </div>
@@ -75,11 +90,20 @@
           </div>
         </div>
 
-        <h2 class="mt-5 text-primary font-weight-bolder">你可能有興趣</h2>
+        <h2 class="mt-5 text-primary font-weight-bolder">
+          你可能有興趣
+        </h2>
         <div class="row mt-3">
-          <div v-for="item in productFilter" :key="item.id" class="col-md-4">
+          <div
+            v-for="item in productFilter"
+            :key="item.id"
+            class="col-md-4"
+          >
             <div class="tool-card mb-4 mb-md-0">
-              <a href="#" @click.prevent="changeRoute(item)">
+              <a
+                href="#"
+                @click.prevent="changeRoute(item)"
+              >
                 <div
                   class="bg-cover"
                   :style="{
@@ -113,27 +137,21 @@ export default {
   data() {
     return {
       isLoading: false,
-      productId: "",
+      productId: '',
       product: {},
       products: [],
-      productNum: "",
+      productNum: '',
       carts: [],
       status: {
-        loadingItem: "",
+        loadingItem: '',
       },
-      attentionArr: JSON.parse(localStorage.getItem("attention")) || [],
+      attentionArr: JSON.parse(localStorage.getItem('attention')) || [],
       attentionStar: false,
     };
   },
-  created() {
-    this.productId = this.$route.params.id;
-    this.getProduct();
-    this.getAllProducts();
-    this.getCart();
-  },
   computed: {
     productFilter() {
-      let filterArr = [];
+      const filterArr = [];
       this.products.forEach((item) => {
         if (filterArr.length >= 3) {
           return;
@@ -158,6 +176,12 @@ export default {
       return this.attentionStar;
     },
   },
+  created() {
+    this.productId = this.$route.params.id;
+    this.getProduct();
+    this.getAllProducts();
+    this.getCart();
+  },
   methods: {
     getProduct() {
       const vm = this;
@@ -180,7 +204,7 @@ export default {
     changeRoute(item) {
       const vm = this;
       vm.$router.push({
-        name: "ProductDetail",
+        name: 'ProductDetail',
         params: { id: item.id },
       });
       vm.productId = vm.$route.params.id;
@@ -188,17 +212,17 @@ export default {
     },
     setAttention() {
       const vm = this;
-      let index = vm.attentionArr.indexOf(vm.product.id);
+      const index = vm.attentionArr.indexOf(vm.product.id);
       if (index === -1) {
         vm.attentionStar = true;
         vm.attentionArr.push(vm.product.id);
-        vm.$bus.$emit("message:push", "已加入關注", "success");
+        vm.$bus.$emit('message:push', '已加入關注', 'success');
       } else {
         vm.attentionStar = false;
         vm.attentionArr.splice(index, 1);
-        vm.$bus.$emit("message:push", "已取消關注", "danger");
+        vm.$bus.$emit('message:push', '已取消關注', 'danger');
       }
-      localStorage.setItem("attention", JSON.stringify(this.attentionArr));
+      localStorage.setItem('attention', JSON.stringify(this.attentionArr));
     },
     getCart() {
       const vm = this;
@@ -216,10 +240,12 @@ export default {
         }
       });
       if (num >= 1) {
-        return vm.$bus.$emit("message:push", "購物車已有相同商品", "danger");
+        vm.$bus.$emit('message:push', '購物車已有相同商品', 'danger');
+        return;
       }
-      if (vm.productNum === "") {
-        return vm.$bus.$emit("message:push", "請選擇數量", "danger");
+      if (vm.productNum === '') {
+        vm.$bus.$emit('message:push', '請選擇數量', 'danger');
+        return;
       }
       vm.status.loadingItem = vm.product.id;
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
@@ -228,9 +254,9 @@ export default {
           data: { product_id: `${vm.product.id}`, qty: `${vm.productNum}` },
         })
         .then(() => {
-          vm.status.loadingItem = "";
+          vm.status.loadingItem = '';
           vm.getCart();
-          vm.$bus.$emit("message:push", "成功加入購物車", "success");
+          vm.$bus.$emit('message:push', '成功加入購物車', 'success');
         });
     },
   },

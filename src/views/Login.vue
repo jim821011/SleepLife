@@ -1,40 +1,63 @@
 <template>
   <div>
-    <form class="form-signin" @submit.prevent="signIn">
-      <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
+    <form
+      class="form-signin"
+      @submit.prevent="signIn"
+    >
+      <h1 class="h3 mb-3 font-weight-normal">
+        請先登入
+      </h1>
+      <label
+        for="inputEmail"
+        class="sr-only"
+      >Email address</label>
       <input
-        type="email"
-        v-model="user.username"
         id="inputEmail"
+        v-model="user.username"
+        type="email"
         class="form-control"
         placeholder="Email address"
         required
         autofocus
-      />
-      <label for="inputPassword" class="sr-only">Password</label>
+      >
+      <label
+        for="inputPassword"
+        class="sr-only"
+      >Password</label>
       <input
-        type="password"
-        v-model="user.password"
         id="inputPassword"
+        v-model="user.password"
+        type="password"
         class="form-control"
         placeholder="Password"
         required
-      />
+      >
       <div class="checkbox mb-3 d-flex">
         <label>
-          <input type="checkbox" value="remember-me" /> Remember me
+          <input
+            type="checkbox"
+            value="remember-me"
+          > Remember me
         </label>
         <div class="ml-auto">
-          <router-link :to="{ name: 'Index' }" class="text-primary" href="#"
-            >首頁</router-link
+          <router-link
+            :to="{ name: 'Index' }"
+            class="text-primary"
+            href="#"
           >
+            首頁
+          </router-link>
         </div>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+      >
         Sign in
       </button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+      <p class="mt-5 mb-3 text-muted">
+        &copy; 2020-2021
+      </p>
     </form>
   </div>
 </template>
@@ -44,8 +67,8 @@ export default {
   data() {
     return {
       user: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
       },
     };
   },
@@ -56,10 +79,10 @@ export default {
       vm.$http.post(api, vm.user).then((res) => {
         if (res.data.success) {
           // 自行在前端設定cookie
-          const token = res.data.token;
-          const expired = res.data.expired;
+          const { token } = res.data;
+          const { expired } = res.data;
           document.cookie = `myCookie=${token}; expires=${new Date(expired)};`;
-          vm.$router.push("/admin/products");
+          vm.$router.push('/admin/products');
         }
       });
     },

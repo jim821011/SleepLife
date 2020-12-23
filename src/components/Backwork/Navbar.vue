@@ -1,15 +1,23 @@
 <template>
   <div>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <span class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">後臺系統</span>
-      <router-link class="text-light px-3 ml-auto" :to="{ name: 'Index' }"
-        >回網站首頁</router-link
+      <span
+        class="navbar-brand col-sm-3 col-md-2 mr-0"
+        href="#"
+      >後臺系統</span>
+      <router-link
+        class="text-light px-3 ml-auto"
+        :to="{ name: 'Index' }"
       >
+        回網站首頁
+      </router-link>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="text-light nav-link" href="#" @click.prevent="logOut"
-            >登出</a
-          >
+          <a
+            class="text-light nav-link"
+            href="#"
+            @click.prevent="logOut"
+          >登出</a>
         </li>
       </ul>
     </nav>
@@ -27,7 +35,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}logout`;
       vm.$http.post(api, vm.user).then((res) => {
         if (res.data.success) {
-          vm.$router.push("/login");
+          vm.$router.push('/login');
         }
       });
     },
