@@ -11,8 +11,8 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-4">
-      <div class="bg-cover d-flex justify-content-end header-img" />
+    <header class="container px-0 px-md-3 mt-sm-4">
+      <div class="bg-cover header-img" />
     </header>
 
     <section class="container mb-5 mt-md-4 mt-4">
@@ -227,5 +227,8 @@ export default {
 .header-img {
   background-image: url(../../assets/images/bg_5.jpg);
   height: 496px;
+  @media (max-width:576px){
+    height: 315px;
+  }
 }
 </style>

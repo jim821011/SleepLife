@@ -18,7 +18,7 @@
             id="form-list"
             class="col-md-8 h-100"
           >
-            <div class="bg-primary px-4 pt-4 text-white">
+            <div class="px-4 pt-4 text-primary">
               <h2 class="m-0 font-weight-bolder text-center">
                 基本資料
               </h2>
@@ -26,7 +26,7 @@
 
             <validation-observer v-slot="{ invalid }">
               <form
-                class="bg-primary p-4 font-weight-bolder text-white font-20"
+                class="p-4 font-weight-bolder text-primary font-20"
                 @submit.prevent="createOrder"
               >
                 <validation-provider
@@ -154,7 +154,7 @@
                   <button
                     type="submit"
                     :disabled="invalid"
-                    class="btn btn-main-l w-50 py-3 text-primary font-24 font-weight-bolder"
+                    class="btn btn-primary py-3 font-24 font-weight-bolder"
                     :class="{ 'not-allowed':invalid }"
                   >
                     送出訂單

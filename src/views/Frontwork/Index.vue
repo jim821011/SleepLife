@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-4">
+    <header class="container px-0 px-md-3 mt-sm-4">
       <swiper
         ref="headSwiper"
         :options="headSwiper"
@@ -21,7 +21,7 @@
             <div
               class="bg-brightness d-flex justify-content-center align-items-center"
             >
-              <span class="header-title">安心睡，迎接美好的一天</span>
+              <span class="header-title px-3 text-center">安心睡，迎接美好的一天</span>
             </div>
           </div>
         </swiper-slide>
@@ -30,7 +30,7 @@
             <div
               class="bg-brightness d-flex flex-column justify-content-center align-items-center"
             >
-              <span class="header-title">多款實用又實惠的寢具</span>
+              <span class="header-title px-3 text-center">多款實用又實惠的寢具</span>
               <router-link
                 class="btn btn-primary btn-lg"
                 to="/production"
@@ -45,7 +45,7 @@
             <div
               class="bg-brightness d-flex flex-column justify-content-center align-items-center"
             >
-              <span class="header-title">完美寢具盡在Sleep Life</span>
+              <span class="header-title px-3 text-center">完美寢具盡在Sleep Life</span>
             </div>
           </div>
         </swiper-slide>
@@ -143,7 +143,7 @@
         <div
           class="bg-brightness d-flex flex-column justify-content-center align-items-center"
         >
-          <h2 class="section_3-title">
+          <h2 class="section_3-title px-3 text-center">
             想要一覺到天明?
           </h2>
           <router-link
@@ -376,7 +376,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
 .section_3-title {
   color: rgba(255, 255, 255, 0.8);
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .intro-title-column {

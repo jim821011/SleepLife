@@ -47,7 +47,10 @@
                 商品列表
               </router-link>
             </li>
-            <li class="nav-item">
+            <li
+              class="nav-item"
+              @click="closeNavbar"
+            >
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/attention"
@@ -55,7 +58,10 @@
                 我的關注
               </router-link>
             </li>
-            <li class="nav-item">
+            <li
+              class="nav-item"
+              @click="closeNavbar"
+            >
               <router-link
                 class="nav-link px-md-4 text-light font-weight-bolder"
                 to="/cart"
@@ -79,49 +85,47 @@
     <router-view />
 
     <footer>
-      <div class="bg-blue py-2">
+      <div class="bg-blue py-3">
         <div class="container">
-          <div class="d-flex">
-            <div class="row">
-              <div class="col">
-                <div class="d-flex flex-column align-items-start">
-                  <span
-                    class="text-light"
-                    href="#"
-                  >07-1234-5678</span>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="d-flex flex-column align-items-start">
+                <span
+                  class="text-light"
+                  href="#"
+                >07-1234-5678</span>
+                <a
+                  class="text-light"
+                  href="#"
+                >sweetaste@email.com</a>
+                <span
+                  class="text-light"
+                  href="#"
+                >800 高雄市新興區幸福路 520 號</span>
+                <div class="d-flex">
                   <a
-                    class="text-light"
                     href="#"
-                  >sweetaste@email.com</a>
-                  <span
                     class="text-light"
+                  >
+                    <i class="fab fa-facebook-square fa-2x" />
+                  </a>
+                  <a
                     href="#"
-                  >800 高雄市新興區幸福路 520 號</span>
-                  <div class="d-flex">
-                    <a
-                      href="#"
-                      class="text-light"
-                    >
-                      <i class="fab fa-facebook-square fa-2x" />
-                    </a>
-                    <a
-                      href="#"
-                      class="text-light ml-1"
-                    >
-                      <i class="fab fa-twitter-square fa-2x" />
-                    </a>
-                    <a
-                      href="#"
-                      class="text-light ml-1"
-                    >
-                      <i class="fab fa-instagram-square fa-2x" />
-                    </a>
-                  </div>
+                    class="text-light ml-1"
+                  >
+                    <i class="fab fa-twitter-square fa-2x" />
+                  </a>
+                  <a
+                    href="#"
+                    class="text-light ml-1"
+                  >
+                    <i class="fab fa-instagram-square fa-2x" />
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="ml-auto align-self-center">
-              <div class="bg-cover logo mb-2" />
+            <div class="col-sm-6 align-self-center">
+              <div class="bg-cover logo ml-sm-auto mt-3 mt-sm-0" />
             </div>
           </div>
         </div>
@@ -139,7 +143,8 @@ export default {
     Alert,
   },
   data() {
-    return {};
+    return {
+    };
   },
   mounted() {
     window.addEventListener('scroll', this.goTopShow);
@@ -162,7 +167,10 @@ export default {
       });
     },
     closeNavbar() {
-      $('.navbar-toggler').click();
+      const windowWieght = document.body.clientWidth;
+      if (windowWieght <= 750) {
+        $('.navbar-toggler').click();
+      }
     },
   },
 };

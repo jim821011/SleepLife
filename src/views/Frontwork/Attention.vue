@@ -34,7 +34,7 @@
           </div>
           <div
             v-else
-            class="col-md-10"
+            class="col-lg-10"
           >
             <h2 class="text-primary font-weight-bolder">
               關注商品
@@ -42,9 +42,12 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th width="150" />
+                  <th
+                    width="150"
+                    class="d-none d-md-table-cell"
+                  />
                   <th>名稱</th>
-                  <th width="150">
+                  <th width="120">
                     價格
                   </th>
                   <th width="120">
@@ -60,7 +63,7 @@
                   v-for="item in products"
                   :key="item.id"
                 >
-                  <td>
+                  <td class="d-none d-md-table-cell">
                     <router-link :to="{ path: `product_detail/${item.id}` }">
                       <div
                         class="bg-cover"
