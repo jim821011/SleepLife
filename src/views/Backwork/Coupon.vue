@@ -9,8 +9,8 @@
       </button>
     </div>
     <loading :active.sync="isLoading">
-      <div class="loadingio-spinner-ellipsis-aby2qqypx7">
-        <div class="ldio-gx7c5s03jv">
+      <div class="loading-animated">
+        <div class="loading-animated-circle">
           <div />
           <div />
           <div />

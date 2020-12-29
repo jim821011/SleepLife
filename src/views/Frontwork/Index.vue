@@ -1,8 +1,8 @@
 <template>
   <div>
     <loading :active.sync="isLoading">
-      <div class="loadingio-spinner-ellipsis-aby2qqypx7">
-        <div class="ldio-gx7c5s03jv">
+      <div class="loading-animated">
+        <div class="loading-animated-circle">
           <div />
           <div />
           <div />
@@ -345,6 +345,7 @@ export default {
 <style lang="scss">
 $main-dark-b: #376273;
 $main-light-b: rgba(204, 223, 234, 0.68);
+@import '~animate.css/animate.css';
 
 .bg-brightness {
   backdrop-filter: brightness(50%);

@@ -28,7 +28,11 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon text-light" />
+          <div class="navbar-icon">
+            <span />
+            <span />
+            <span />
+          </div>
         </button>
 
         <div
@@ -199,6 +203,18 @@ export default {
     position: absolute;
     top: 10px;
     left: 12px;
+  }
+}
+.navbar-icon {
+  padding-top: 5px;
+  span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: white;
+    border-radius: 3px;
   }
 }
 </style>

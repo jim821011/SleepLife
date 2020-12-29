@@ -11,7 +11,6 @@ import TW from 'vee-validate/dist/locale/zh_TW.json';
 import * as rules from 'vee-validate/dist/rules';
 import 'swiper/css/swiper.css';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import animated from 'animate.css';
 
 import App from './App.vue';
 import router from './router';
@@ -35,7 +34,6 @@ axios.defaults.withCredentials = true;
 Vue.component('loading', Loading);
 Vue.filter('CurrencyFilter', CurrencyFilter);
 Vue.filter('DateFilter', DateFilter);
-Vue.use(animated);
 
 new Vue({
   router,

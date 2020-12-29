@@ -1,8 +1,8 @@
 <template>
   <div>
     <loading :active.sync="isLoading">
-      <div class="loadingio-spinner-ellipsis-aby2qqypx7">
-        <div class="ldio-gx7c5s03jv">
+      <div class="loading-animated">
+        <div class="loading-animated-circle">
           <div />
           <div />
           <div />
@@ -163,6 +163,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
       vm.isLoading = true;
       vm.$http.get(api).then((res) => {
+        console.log(res.data.products);
         vm.products = res.data.products;
         vm.products.forEach((item) => {
           vm.$set(item, 'attentionStar', false);
@@ -222,7 +223,7 @@ export default {
 <style lang="scss" scoped>
 .list {
   position: sticky;
-  top: 80px;
+  top: 100px;
 }
 .header-img {
   background-image: url(../../assets/images/bg_5.jpg);

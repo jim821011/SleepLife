@@ -2,10 +2,6 @@
 $main-dark-b:#376273;
 $main-light-b: rgba(204, 223, 234, 0.68);
 
-.form-control {
-  background-clip: border-box !important;
-}
-
 a {
   &:hover {
     text-decoration: none !important;
@@ -68,7 +64,6 @@ a {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     backdrop-filter: blur(1px);
-    text-decoration: none;
   }
 }
 
@@ -109,11 +104,11 @@ a {
 }
 
 .font-24 {
-  font-size: 24px !important;
+  font-size: 24px;
 }
 
 .font-20 {
-  font-size: 20px !important;
+  font-size: 20px;
 }
 
 .circle-img {
@@ -168,7 +163,7 @@ a {
   }
 }
 
-@keyframes ldio-gx7c5s03jv {
+@keyframes loading-animated-circle {
   0% {
     transform: translate(12px, 80px) scale(0);
   }
@@ -190,7 +185,7 @@ a {
   }
 }
 
-@keyframes ldio-gx7c5s03jv-r {
+@keyframes loading-animated-circle-r {
   0% {
     transform: translate(148px, 80px) scale(1);
   }
@@ -200,7 +195,7 @@ a {
   }
 }
 
-@keyframes ldio-gx7c5s03jv-c {
+@keyframes loading-animated-circle-c {
   0% {
     background: #376273
   }
@@ -222,43 +217,43 @@ a {
   }
 }
 
-.ldio-gx7c5s03jv div {
+.loading-animated-circle div {
   position: absolute;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   transform: translate(80px, 80px) scale(1);
   background: #376273;
-  animation: ldio-gx7c5s03jv 1s infinite cubic-bezier(0, 0.5, 0.5, 1);
+  animation: loading-animated-circle 1s infinite cubic-bezier(0, 0.5, 0.5, 1);
 }
 
-.ldio-gx7c5s03jv div:nth-child(1) {
+.loading-animated-circle div:nth-child(1) {
   background: #5699d2;
   transform: translate(148px, 80px) scale(1);
-  animation: ldio-gx7c5s03jv-r 0.25s infinite cubic-bezier(0, 0.5, 0.5, 1), ldio-gx7c5s03jv-c 1s infinite step-start;
+  animation: loading-animated-circle-r 0.25s infinite cubic-bezier(0, 0.5, 0.5, 1), loading-animated-circle-c 1s infinite step-start;
 }
 
-.ldio-gx7c5s03jv div:nth-child(2) {
+.loading-animated-circle div:nth-child(2) {
   animation-delay: -0.25s;
   background: #376273;
 }
 
-.ldio-gx7c5s03jv div:nth-child(3) {
+.loading-animated-circle div:nth-child(3) {
   animation-delay: -0.5s;
   background: #5699d2;
 }
 
-.ldio-gx7c5s03jv div:nth-child(4) {
+.loading-animated-circle div:nth-child(4) {
   animation-delay: -0.75s;
   background: #d8ebf9;
 }
 
-.ldio-gx7c5s03jv div:nth-child(5) {
+.loading-animated-circle div:nth-child(5) {
   animation-delay: -1s;
   background: #71c2cc;
 }
 
-.loadingio-spinner-ellipsis-aby2qqypx7 {
+.loading-animated {
   width: 200px;
   height: 200px;
   display: inline-block;
@@ -266,7 +261,7 @@ a {
   background: none;
 }
 
-.ldio-gx7c5s03jv {
+.loading-animated-circle {
   width: 100%;
   height: 100%;
   position: relative;
@@ -276,7 +271,7 @@ a {
   /* see note above */
 }
 
-.ldio-gx7c5s03jv div {
+.loading-animated-circle div {
   box-sizing: content-box;
 }
 
