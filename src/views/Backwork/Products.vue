@@ -13,7 +13,7 @@
     </loading>
     <div class="text-right mt-4">
       <button
-        class="btn btn-primary"
+        class="btn btn-primary font-weight-bolder"
         @click="openModel(true)"
       >
         新建立的產品
@@ -79,13 +79,13 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-primary btn-sm"
               @click="openModel(false, item)"
             >
               編輯
             </button>
             <button
-              class="btn btn-outline-danger btn-sm"
+              class="btn btn-danger btn-sm"
               @click="deleteModel(item)"
             >
               刪除
@@ -271,7 +271,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               取消
@@ -324,7 +324,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               取消

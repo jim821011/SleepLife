@@ -75,7 +75,7 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-primary btn-sm"
               @click="openOrder(item)"
             >
               編輯
@@ -157,7 +157,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               取消

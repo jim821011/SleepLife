@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-4 mb-5">
+    <div class="mt-5 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -26,14 +26,13 @@
               <table class="table table-borderless mb-5">
                 <thead class="bg-main-l">
                   <tr>
-                    <th>品名</th>
-                    <th
-                      width="100"
-                    >
+                    <th>
+                      品名
+                    </th>
+                    <th>
                       數量
                     </th>
                     <th
-                      width="120"
                       class="text-right"
                     >
                       總價

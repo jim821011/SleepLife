@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-sm-4">
+    <header class="container px-0 px-md-3 mt-sm-5">
       <swiper
         ref="headSwiper"
         :options="headSwiper"
@@ -19,9 +19,15 @@
         <swiper-slide>
           <div class="bg-cover bg-img-1">
             <div
-              class="bg-brightness d-flex justify-content-center align-items-center"
+              class="bg-brightness d-flex flex-column justify-content-center align-items-center"
             >
               <span class="header-title px-3 text-center">安心睡，迎接美好的一天</span>
+              <router-link
+                class="btn btn-primary btn-lg font-weight-bolder"
+                to="/production"
+              >
+                商品專頁
+              </router-link>
             </div>
           </div>
         </swiper-slide>
@@ -32,7 +38,7 @@
             >
               <span class="header-title px-3 text-center">多款實用又實惠的寢具</span>
               <router-link
-                class="btn btn-primary btn-lg"
+                class="btn btn-primary btn-lg font-weight-bolder"
                 to="/production"
               >
                 手刀搶購
@@ -46,6 +52,13 @@
               class="bg-brightness d-flex flex-column justify-content-center align-items-center"
             >
               <span class="header-title px-3 text-center">完美寢具盡在Sleep Life</span>
+              <a
+                class="btn btn-primary btn-lg font-weight-bolder"
+                @click.prevent="goNewProduct"
+              >
+                <i class="fas fa-angle-down" />
+                最新商品
+              </a>
             </div>
           </div>
         </swiper-slide>
@@ -147,7 +160,7 @@
             想要一覺到天明?
           </h2>
           <router-link
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg font-weight-bolder"
             to="/production"
           >
             立刻選購去
@@ -156,7 +169,10 @@
       </div>
     </section>
 
-    <section class="mb-5 mb-md-6">
+    <section
+      id="newestProduct"
+      class="mb-5 mb-md-6"
+    >
       <div class="container">
         <div class="d-flex align-items-start">
           <h2 class="production-title mb-3">
@@ -179,19 +195,18 @@
               v-for="item in NewFiveProduction"
               :key="item.id"
             >
-              <div class="col">
+              <div class="">
                 <div class="tool-card mb-4 mb-md-0">
                   <router-link :to="{ path: `product_detail/${item.id}` }">
                     <div
                       class="bg-cover"
                       :style="{
                         backgroundImage: `url(${item.imageUrl})`,
-                        height: `315px`,
                       }"
                     >
                       <div
-                        class="production-img d-flex justify-content-center
-                        h-100 align-items-center"
+                        class="production-guide-img d-flex justify-content-center
+                        align-items-center"
                       >
                         商品資訊
                       </div>
@@ -252,6 +267,7 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        spaceBetween: 20,
         slidesPerView: 1, // 初始顯示數量
         breakpoints: {
           576: {
@@ -337,6 +353,11 @@ export default {
     shopswiperStart() {
       // 最新商品幻燈片開始運作 配合mouseleave事件
       this.shopswiper.autoplay.start();
+    },
+    goNewProduct() {
+      $('html, body').stop().animate({
+        scrollTop: $('#newestProduct').offset().top - 80,
+      });
     },
   },
 };

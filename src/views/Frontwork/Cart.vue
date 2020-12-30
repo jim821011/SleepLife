@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-4 mb-5">
+    <div class="mt-5 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div
@@ -109,7 +109,7 @@
               >總金額 : NT$ {{ totalPrice }}</span>
               <router-link
                 to="/order"
-                class="btn btn-primary d-block"
+                class="btn btn-primary d-block font-weight-bolder"
               >
                 結帳去
               </router-link>

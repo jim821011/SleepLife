@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-4 mb-5">
+    <div class="mt-5 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6">
@@ -72,7 +72,7 @@
               <div class="d-flex align-items-center">
                 <small>小記 : NT$ {{ product.price * productNum }}</small>
                 <button
-                  class="w-50 btn btn-outline-primary ml-auto"
+                  class="w-50 btn btn-primary font-weight-bolder ml-auto"
                   @click="addToCart"
                 >
                   <i

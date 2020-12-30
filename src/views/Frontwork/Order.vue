@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-4 mb-5">
+    <div class="mt-5 mb-5">
       <div class="container px-0 px-md-3">
         <div class="row no-gutters">
           <div
@@ -154,7 +154,7 @@
                   <button
                     type="submit"
                     :disabled="invalid"
-                    class="btn btn-primary py-3 font-weight-bolder"
+                    class="btn btn-primary btn-lg font-weight-bolder"
                     :class="{ 'not-allowed':invalid }"
                   >
                     送出訂單
@@ -190,7 +190,7 @@
                     </div>
                     <div class="coupon-btn ml-auto">
                       <button
-                        class="btn btn-main-l btn-sm w-100"
+                        class="btn btn-primary btn-sm font-weight-bolder"
                         @click="useCoupon"
                       >
                         套用

@@ -11,7 +11,7 @@
         </div>
       </div>
     </loading>
-    <div class="mt-4 mb-5">
+    <div class="mt-5 mb-5">
       <div class="container">
         <div class="row justify-content-center">
           <div
@@ -46,7 +46,9 @@
                     width="150"
                     class="d-none d-md-table-cell"
                   />
-                  <th>名稱</th>
+                  <th width="200">
+                    名稱
+                  </th>
                   <th width="120">
                     價格
                   </th>

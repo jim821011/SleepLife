@@ -11,8 +11,19 @@
         </div>
       </div>
     </loading>
-    <header class="container px-0 px-md-3 mt-sm-4">
-      <div class="bg-cover header-img" />
+    <header class="container px-0 px-md-3 mt-sm-5">
+      <div
+        v-if="sectionActive === ''"
+        class="bg-cover header-img header-img-1"
+      />
+      <div
+        v-if="sectionActive === '床墊'"
+        class="bg-cover header-img header-img-2"
+      />
+      <div
+        v-if="sectionActive === '枕頭'"
+        class="bg-cover header-img header-img-3"
+      />
     </header>
 
     <section class="container mb-5 mt-md-4 mt-4">
@@ -38,13 +49,13 @@
                   :class="{ active: sectionActive == '床墊' }"
                   @click.prevent="sectionActive = '床墊'"
                 >
-                  精選床墊 {{ `(${list_1Num})` }}</a>
+                  精選床墊 {{ (listNum('床墊')) }}</a>
                 <a
                   href="#"
                   class="list-group-item list-group-item-action"
                   :class="{ active: sectionActive == '枕頭' }"
                   @click.prevent="sectionActive = '枕頭'"
-                >舒眠枕頭 {{ `(${list_2Num})` }}</a>
+                >舒眠枕頭 {{ (listNum('枕頭')) }}</a>
               </div>
             </div>
           </div>
@@ -141,16 +152,6 @@ export default {
       }
       return this.products.filter((item) => item.category === this.sectionActive);
     },
-    list_1Num() {
-      let filterProduct = [];
-      filterProduct = this.products.filter((item) => item.category === '床墊');
-      return filterProduct.length;
-    },
-    list_2Num() {
-      let filterProduct = [];
-      filterProduct = this.products.filter((item) => item.category === '枕頭');
-      return filterProduct.length;
-    },
   },
   created() {
     this.getProduction();
@@ -163,7 +164,6 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/products/all`;
       vm.isLoading = true;
       vm.$http.get(api).then((res) => {
-        console.log(res.data.products);
         vm.products = res.data.products;
         vm.products.forEach((item) => {
           vm.$set(item, 'attentionStar', false);
@@ -216,6 +216,11 @@ export default {
           vm.$bus.$emit('message:push', '成功加入購物車', 'success');
         });
     },
+    listNum(category) {
+      let filterProduct = [];
+      filterProduct = this.products.filter((item) => item.category === category);
+      return `(${filterProduct.length})`;
+    },
   },
 };
 </script>
@@ -226,10 +231,18 @@ export default {
   top: 100px;
 }
 .header-img {
-  background-image: url(../../assets/images/bg_5.jpg);
   height: 496px;
   @media (max-width:576px){
     height: 315px;
   }
+}
+.header-img-1 {
+  background-image: url(../../assets/images/bg_5.jpg);
+}
+.header-img-2 {
+  background-image: url(../../assets/images/bg_6.jpg);
+}
+.header-img-3 {
+  background-image: url(../../assets/images/bg_7.jpg);
 }
 </style>

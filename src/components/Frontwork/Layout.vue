@@ -8,85 +8,87 @@
       <i class="fas fa-angle-up" />
     </a>
     <Alert />
-    <nav class="navbar navbar-expand-md navbar-light bg-blue-op9 sticky-top">
-      <div class="container">
-        <router-link
-          :to="{ name: 'Index' }"
-          class="py-1"
-        >
-          <h1 class="sr-only">
-            Sleep Life
-          </h1>
-          <div class="bg-cover logo" />
-        </router-link>
-        <button
-          class="navbar-toggler border-0"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <div class="navbar-icon">
-            <span />
-            <span />
-            <span />
+    <div class="sticky-footer">
+      <nav class="navbar navbar-expand-md navbar-light bg-blue-op9 sticky-top">
+        <div class="container">
+          <router-link
+            :to="{ name: 'Index' }"
+            class="py-1"
+          >
+            <h1 class="sr-only">
+              Sleep Life
+            </h1>
+            <div class="bg-cover logo" />
+          </router-link>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <div class="navbar-icon">
+              <span />
+              <span />
+              <span />
+            </div>
+          </button>
+
+          <div
+            id="navbarSupportedContent"
+            class="collapse navbar-collapse"
+          >
+            <ul class="navbar-nav ml-auto">
+              <li
+                class="nav-item"
+                @click="closeNavbar"
+              >
+                <router-link
+                  class="nav-link px-md-4 text-light font-weight-bolder"
+                  to="/production"
+                >
+                  商品列表
+                </router-link>
+              </li>
+              <li
+                class="nav-item"
+                @click="closeNavbar"
+              >
+                <router-link
+                  class="nav-link px-md-4 text-light font-weight-bolder"
+                  to="/attention"
+                >
+                  我的關注
+                </router-link>
+              </li>
+              <li
+                class="nav-item"
+                @click="closeNavbar"
+              >
+                <router-link
+                  class="nav-link px-md-4 text-light font-weight-bolder"
+                  to="/cart"
+                >
+                  購物車
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link
+                  class="nav-link px-md-4 text-light font-weight-bolder"
+                  to="/login"
+                >
+                  登入
+                </router-link>
+              </li>
+            </ul>
           </div>
-        </button>
-
-        <div
-          id="navbarSupportedContent"
-          class="collapse navbar-collapse"
-        >
-          <ul class="navbar-nav ml-auto">
-            <li
-              class="nav-item"
-              @click="closeNavbar"
-            >
-              <router-link
-                class="nav-link px-md-4 text-light font-weight-bolder"
-                to="/production"
-              >
-                商品列表
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              @click="closeNavbar"
-            >
-              <router-link
-                class="nav-link px-md-4 text-light font-weight-bolder"
-                to="/attention"
-              >
-                我的關注
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              @click="closeNavbar"
-            >
-              <router-link
-                class="nav-link px-md-4 text-light font-weight-bolder"
-                to="/cart"
-              >
-                購物車
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link
-                class="nav-link px-md-4 text-light font-weight-bolder"
-                to="/login"
-              >
-                登入
-              </router-link>
-            </li>
-          </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <router-view />
+      <router-view />
+    </div>
 
     <footer>
       <div class="bg-blue py-3">

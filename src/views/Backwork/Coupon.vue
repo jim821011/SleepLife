@@ -2,7 +2,7 @@
   <div>
     <div class="text-right mt-4">
       <button
-        class="btn btn-primary"
+        class="btn btn-primary font-weight-bolder"
         @click="openModal(true)"
       >
         新建立的優惠券
@@ -69,13 +69,13 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-primary btn-sm"
               @click="openModal(false, item)"
             >
               編輯
             </button>
             <button
-              class="btn btn-outline-danger btn-sm"
+              class="btn btn-danger btn-sm"
               @click="deleteModal(item)"
             >
               刪除
@@ -199,7 +199,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               取消
@@ -252,7 +252,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-secondary"
+              class="btn btn-secondary"
               data-dismiss="modal"
             >
               取消

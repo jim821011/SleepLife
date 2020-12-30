@@ -50,10 +50,10 @@
         </div>
       </div>
       <button
-        class="btn btn-lg btn-primary btn-block"
+        class="btn btn-lg btn-primary btn-block font-weight-bolder"
         type="submit"
       >
-        Sign in
+        登入
       </button>
       <p class="mt-5 mb-3 text-muted">
         &copy; 2020-2021
