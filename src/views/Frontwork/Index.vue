@@ -75,7 +75,7 @@
           為什麼要睡好床?
         </h2>
       </div>
-      <div class="bg-blue-l">
+      <div class="bg-main-light">
         <div class="container">
           <div
             ref="fadeInLeft"
@@ -83,7 +83,7 @@
             :class="{ animate__fadeInLeft: fadeInLeftShow }"
           >
             <div class="col-md-6 intro-overflow">
-              <div class="bg-cover-l intro-img h-100 section-img-1" />
+              <div class="bg-cover-left intro-img h-100 section-img-1" />
             </div>
             <div class="col-md-6">
               <div class="row justify-content-end flex-nowrap">
@@ -113,7 +113,7 @@
           良好的睡眠品質有何好處?
         </h2>
       </div>
-      <div class="bg-blue-l">
+      <div class="bg-main-light">
         <div class="container">
           <div
             ref="fadeInRight"
@@ -144,7 +144,7 @@
               </div>
             </div>
             <div class="col-md-6 intro-overflow order-1 order-md-2">
-              <div class="bg-cover-b intro-img h-100 section-img-2" />
+              <div class="bg-cover-bottom intro-img h-100 section-img-2" />
             </div>
           </div>
         </div>
@@ -282,13 +282,12 @@ export default {
           delay: 2000,
         },
         speed: 1000,
-        //   loop:true,
       },
       fadeInLeftHeight: 0,
       fadeInRightHeight: 0,
       fadeInLeftShow: false,
       fadeInRightShow: false,
-      newProduction: [], // 商品列表
+      newProduction: [],
       isLoading: false,
     };
   },
@@ -309,26 +308,17 @@ export default {
   mounted() {
     this.headswiper.slideTo(1, 1000, false);
     this.catchHeight();
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.section_Flash);
     this.getNewProduction();
   },
   methods: {
-    handleScroll() {
-      this.section_1Flash();
-      this.section_2Flash();
-    },
-    section_1Flash() {
+    section_Flash() {
       const scrollPos = $(window).scrollTop(); // 滾離頂端的高度
       const windowHight = $(window).height(); // 可見視窗高度
 
       if (windowHight + scrollPos >= this.fadeInLeftHeight) {
         this.fadeInLeftShow = true;
       }
-    },
-    section_2Flash() {
-      const scrollPos = $(window).scrollTop(); // 滾離頂端的高度
-      const windowHight = $(window).height(); // 可見視窗高度
-
       if (windowHight + scrollPos >= this.fadeInRightHeight) {
         this.fadeInRightShow = true;
       }
@@ -364,8 +354,8 @@ export default {
 </script>
 
 <style lang="scss">
-$main-dark-b: #376273;
-$main-light-b: rgba(204, 223, 234, 0.68);
+$main-color: #376273;
+$main-color-light: rgba(204, 223, 234, 0.68);
 @import '~animate.css/animate.css';
 
 .bg-brightness {
@@ -390,12 +380,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
 .bg-fixed {
   background-attachment: fixed;
 }
-.header-title {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: bolder;
-  font-size: 40px;
-}
-.section_3-title {
+.header-title, .section_3-title {
   color: rgba(255, 255, 255, 0.8);
   font-weight: bolder;
   font-size: 40px;
@@ -406,7 +391,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
   font-size: 45px;
   margin: 0px 10px 0px 50px;
   font-weight: bolder;
-  color: $main-dark-b;
+  color: $main-color;
   @media (max-width: 992px) {
     margin-left: 10px;
   }
@@ -418,7 +403,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
 .intro-title-row {
   font-size: 45px;
   font-weight: bolder;
-  color: $main-dark-b;
+  color: $main-color;
 }
 
 .intro-title-space {
@@ -427,7 +412,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
 
 .intro-text {
   line-height: 2.5;
-  color: $main-dark-b;
+  color: $main-color;
   writing-mode: vertical-rl;
   max-height: 420px;
   padding: 70px 0px;
@@ -478,7 +463,7 @@ $main-light-b: rgba(204, 223, 234, 0.68);
   font-size: 0.5rem;
 }
 .production-title {
-  color: $main-dark-b;
+  color: $main-color;
   font-weight: bolder;
 }
 .swiper-pagination-bullet-active {

@@ -171,7 +171,7 @@
             <div class="ml-0 mt-5 ml-md-3 mt-md-0">
               <div>
                 <h2
-                  class="text-center py-3 bg-main-l font-24 text-primary font-weight-bolder m-0"
+                  class="text-center py-3 bg-main-light font-24 text-primary font-weight-bolder m-0"
                 >
                   訂單摘要
                 </h2>
@@ -190,6 +190,7 @@
                     </div>
                     <div class="coupon-btn ml-auto">
                       <button
+                        type="button"
                         class="btn btn-primary btn-sm font-weight-bolder"
                         @click="useCoupon"
                       >
@@ -224,7 +225,7 @@
               </div>
               <div class="mt-3">
                 <h2
-                  class="text-center py-3 bg-main-l font-24 text-primary font-weight-bolder m-0"
+                  class="text-center py-3 bg-main-light font-24 text-primary font-weight-bolder m-0"
                 >
                   購物清單
                 </h2>
@@ -332,7 +333,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .coupon-btn {
   min-width: 50px;
 }

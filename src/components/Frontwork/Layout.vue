@@ -159,7 +159,7 @@ export default {
     goTopShow() {
       const scrollTop = document.documentElement.scrollTop
         || window.pageYOffset
-        || document.body.scrollTop; // 相容瀏覽器
+        || document.body.scrollTop;
       if (scrollTop > 300) {
         // 滾動高度可調
         $('.go-top').show();

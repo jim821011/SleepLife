@@ -62,19 +62,21 @@
                   </div>
                   <div class="cart-form">
                     <button
-                      class="btn btn-light border-main-l btn-lg text-primary"
+                      type="button"
+                      class="btn btn-light border-main-light btn-lg text-primary"
                       @click="reduceToCart(item)"
                     >
                       -
                     </button>
                     <input
                       type="text"
-                      class="border-main-l cart-input"
+                      class="border-main-light cart-input"
                       :value="item.qty"
                       disabled
                     >
                     <button
-                      class="btn btn-light border-main-l btn-lg text-primary"
+                      type="button"
+                      class="btn btn-light border-main-light btn-lg text-primary"
                       @click="addToCart(item)"
                     >
                       +
@@ -86,6 +88,7 @@
                 class="d-flex align-items-center cart-price ml-md-3 pt-3 mt-3 p-md-0 mt-md-0"
               >
                 <button
+                  type="button"
                   class="btn btn-danger btn-sm d-block d-md-none"
                   @click.prevent="deletCart(item.id)"
                 >

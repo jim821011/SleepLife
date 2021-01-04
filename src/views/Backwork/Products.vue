@@ -13,6 +13,7 @@
     </loading>
     <div class="text-right mt-4">
       <button
+        type="button"
         class="btn btn-primary font-weight-bolder"
         @click="openModel(true)"
       >
@@ -79,12 +80,14 @@
           </td>
           <td>
             <button
+              type="button"
               class="btn btn-primary btn-sm"
               @click="openModel(false, item)"
             >
               編輯
             </button>
             <button
+              type="button"
               class="btn btn-danger btn-sm"
               @click="deleteModel(item)"
             >
@@ -372,14 +375,13 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/products?page=${page}`;
       vm.isLoading = true;
-      this.$http.get(api).then((res) => {
+      vm.$http.get(api).then((res) => {
         vm.isLoading = false;
         vm.products = res.data.products;
         vm.pagination = res.data.pagination;
       });
     },
     openModel(isNew, item) {
-      $('#productModel').modal('show');
       if (isNew) {
         this.tempProduct = {};
         this.isNew = true;
@@ -387,10 +389,11 @@ export default {
         this.tempProduct = { ...item };
         this.isNew = false;
       }
+      $('#productModel').modal('show');
     },
     deleteModel(item) {
-      $('#delProductModal').modal('show');
       this.tempProduct = item;
+      $('#delProductModal').modal('show');
     },
     updateProduct() {
       const vm = this;
@@ -400,7 +403,7 @@ export default {
         api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${vm.tempProduct.id}`;
         modalType = 'put';
       }
-      this.$http[modalType](api, { data: vm.tempProduct }).then((res) => {
+      vm.$http[modalType](api, { data: vm.tempProduct }).then((res) => {
         if (res.data.success) {
           $('#productModel').modal('hide');
           vm.getProducts();
@@ -408,7 +411,6 @@ export default {
           $('#productModel').modal('hide');
           vm.getProducts();
         }
-        // vm.products = res.data.products;
       });
     },
     delProduct() {

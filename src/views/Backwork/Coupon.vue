@@ -2,6 +2,7 @@
   <div>
     <div class="text-right mt-4">
       <button
+        type="button"
         class="btn btn-primary font-weight-bolder"
         @click="openModal(true)"
       >
@@ -69,12 +70,14 @@
           </td>
           <td>
             <button
+              type="button"
               class="btn btn-primary btn-sm"
               @click="openModal(false, item)"
             >
               編輯
             </button>
             <button
+              type="button"
               class="btn btn-danger btn-sm"
               @click="deleteModal(item)"
             >

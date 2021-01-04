@@ -37,7 +37,6 @@ export default new Router({
     },
     {
       path: '/',
-      // name:'Layout',
       component: () => import('@/components/Frontwork/Layout'),
       children: [
         {

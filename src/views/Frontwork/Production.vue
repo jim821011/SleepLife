@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="mt-4 list">
-            <h5 class="bg-main-d text-white m-0 py-3 h3 text-center">
+            <h5 class="bg-primary text-white m-0 py-3 h3 text-center">
               商品列表
             </h5>
             <div class="production-list bg-white">
@@ -103,7 +103,7 @@
                   </a>
                   <a
                     href="#"
-                    class="btn btn-main-l btn-lg border-0 text-primary w-75 font-weight-bolder"
+                    class="btn btn-main-light btn-lg border-0 text-primary w-75 font-weight-bolder"
                     @click.prevent="addToCart(item)"
                   >
                     <i

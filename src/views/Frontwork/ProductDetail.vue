@@ -72,6 +72,7 @@
               <div class="d-flex align-items-center">
                 <small>小記 : NT$ {{ product.price * productNum }}</small>
                 <button
+                  type="button"
                   class="w-50 btn btn-primary font-weight-bolder ml-auto"
                   @click="addToCart"
                 >

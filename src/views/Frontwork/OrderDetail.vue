@@ -24,7 +24,7 @@
               </h2>
 
               <table class="table table-borderless mb-5">
-                <thead class="bg-main-l">
+                <thead class="bg-main-light">
                   <tr>
                     <th>
                       品名
@@ -118,7 +118,7 @@
                 <button
                   v-if="!order.is_paid"
                   type="submit"
-                  class="btn btn-main-l"
+                  class="btn btn-main-light"
                 >
                   確認付款
                 </button>

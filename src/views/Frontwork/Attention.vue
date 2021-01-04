@@ -34,7 +34,7 @@
           </div>
           <div
             v-else
-            class="col-lg-10"
+            class="col-lg-10 overflow-auto"
           >
             <h2 class="text-primary font-weight-bolder">
               關注商品
@@ -46,16 +46,27 @@
                     width="150"
                     class="d-none d-md-table-cell"
                   />
-                  <th width="200">
+                  <th
+                    class="no-wrap"
+                  >
                     名稱
                   </th>
-                  <th width="120">
+                  <th
+                    width="150"
+                    class="no-wrap"
+                  >
                     價格
                   </th>
-                  <th width="120">
+                  <th
+                    width="100"
+                    class="no-wrap"
+                  >
                     加入購物車
                   </th>
-                  <th width="75">
+                  <th
+                    width="75"
+                    class="no-wrap"
+                  >
                     刪除
                   </th>
                 </tr>
@@ -76,14 +87,15 @@
                       />
                     </router-link>
                   </td>
-                  <td class="align-middle">
+                  <td class="align-middle no-wrap">
                     {{ item.title }}
                   </td>
-                  <td class="align-middle">
+                  <td class="align-middle no-wrap">
                     NT$ {{ item.price }}
                   </td>
-                  <td class="align-middle">
+                  <td class="align-middle no-wrap">
                     <button
+                      type="button"
                       class="btn btn-outline-primary btn-sm w-100"
                       @click="addToCart(item)"
                     >
@@ -94,8 +106,9 @@
                       <i class="fas fa-shopping-cart" />
                     </button>
                   </td>
-                  <td class="align-middle">
+                  <td class="align-middle no-wrap">
                     <button
+                      type="button"
                       class="btn btn-outline-danger btn-sm"
                       @click.prevent="removeAttention(item)"
                     >
@@ -255,5 +268,8 @@ export default {
 }
 .product-img-3 {
   background-image: url(../../assets/images/product_3.jpg);
+}
+.no-wrap {
+  white-space: nowrap;
 }
 </style>
