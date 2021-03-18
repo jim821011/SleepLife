@@ -75,14 +75,14 @@
           為什麼要睡好床?
         </h2>
       </div>
-      <div class="bg-main-light overflow-hidden">
+      <div class="bg-main-light">
         <div class="container">
           <div
             ref="fadeInLeft"
             class="row animate__animated animate__slowe"
-            :class="{ animate__fadeInLeft: fadeInLeftShow }"
+            :class="{ animate__fadeIn: fadeInLeftShow }"
           >
-            <div class="col-md-6">
+            <div class="col-md-6 intro-overflow">
               <div class="bg-cover-left intro-img h-100 section-img-1" />
             </div>
             <div class="col-md-6">
@@ -95,7 +95,7 @@
                     選購適合自己的寢具、枕頭，能提供舒適的睡眠，也能避免產生頸椎及過敏的毛病。
                   </p>
                 </div>
-                <div class="d-none d-md-block">
+                <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
                     為什麼要睡好床<span class="intro-title-qus">?</span>
                   </h2>
@@ -113,16 +113,16 @@
           良好的睡眠品質有何好處?
         </h2>
       </div>
-      <div class="bg-main-light overflow-hidden">
+      <div class="bg-main-light">
         <div class="container">
           <div
             ref="fadeInRight"
             class="row animate__animated animate__slowe"
-            :class="{ animate__fadeInRight: fadeInRightShow }"
+            :class="{ animate__fadeIn: fadeInRightShow }"
           >
             <div class="col-md-6 order-2 order-md-1">
               <div class="row flex-row-reverse flex-nowrap">
-                <div class="d-none d-md-block">
+                <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
                     良好的睡眠品質
                     <br>
@@ -143,7 +143,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 order-1 order-md-2">
+            <div class="col-md-6 intro-overflow order-1 order-md-2">
               <div class="bg-cover-bottom intro-img h-100 section-img-2" />
             </div>
           </div>
@@ -446,6 +446,13 @@ $main-color-light: rgba(204, 223, 234, 0.68);
   margin-bottom: -25px;
   @media (max-width: 768px) {
     margin: 0;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  &.active {
+    opacity: 1;
   }
 }
 
