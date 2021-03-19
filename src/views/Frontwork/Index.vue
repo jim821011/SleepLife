@@ -379,6 +379,9 @@ $main-color-light: rgba(204, 223, 234, 0.68);
 
 .bg-fixed {
   background-attachment: fixed;
+  @media screen and (max-width:576px) {
+    background-attachment: scroll;
+  }
 }
 .header-title, .section_3-title {
   color: rgba(255, 255, 255, 0.8);
