@@ -79,8 +79,8 @@
         <div class="container">
           <div
             ref="fadeInLeft"
-            class="row animate__animated animate__slowe"
-            :class="{ animate__fadeIn: fadeInLeftShow }"
+            class="row fadeIn"
+            :class="{ active: fadeInLeftShow }"
           >
             <div class="col-md-6 intro-overflow">
               <div class="bg-cover-left intro-img h-100 section-img-1" />
@@ -117,8 +117,8 @@
         <div class="container">
           <div
             ref="fadeInRight"
-            class="row animate__animated animate__slowe"
-            :class="{ animate__fadeIn: fadeInRightShow }"
+            class="row fadeIn"
+            :class="{ active: fadeInRightShow }"
           >
             <div class="col-md-6 order-2 order-md-1">
               <div class="row flex-row-reverse flex-nowrap">
@@ -452,6 +452,15 @@ $main-color-light: rgba(204, 223, 234, 0.68);
 .fadeIn {
   opacity: 0;
   &.active {
+    opacity: 1;
+    animation: fadeIn-active 1.5s;
+  }
+}
+@keyframes fadeIn-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
