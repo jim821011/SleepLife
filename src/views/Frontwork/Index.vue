@@ -124,7 +124,14 @@
             :class="{ active: fadeInRightShow }"
           >
             <div class="col-md-7 order-2 order-md-1">
-              <div class="d-flex flex-row-reverse justify-content-start justify-content-lg-center">
+              <div class="d-flex justify-content-lg-center">
+                <div class="intro-text">
+                  <p>
+                    好的睡眠品質可以讓身體機能正常運作且有效的運作轉，也可以提升免疫力；因大腦可以有效運作，
+                    做事效率會提升，專注力也會提升。
+                    而在心理方面，好的睡眠品質可使情緒穩定，舒緩壓力，令人心情愉悅。
+                  </p>
+                </div>
                 <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
                     良好的睡眠品質
@@ -136,13 +143,6 @@
                       ?
                     </span>
                   </h2>
-                </div>
-                <div class="intro-text">
-                  <p>
-                    好的睡眠品質可以讓身體機能正常運作且有效的運作轉，也可以提升免疫力；因大腦可以有效運作，
-                    做事效率會提升，專注力也會提升。
-                    而在心理方面，好的睡眠品質可使情緒穩定，舒緩壓力，令人心情愉悅。
-                  </p>
                 </div>
               </div>
             </div>
@@ -410,7 +410,7 @@ $main-color-light: rgba(204, 223, 234, 0.68);
   font-weight: bolder;
   color: $main-color;
   @media (max-width: 992px) {
-    margin-left: 10px;
+    margin: 0;
   }
 }
 .intro-title-qus {
