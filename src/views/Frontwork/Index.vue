@@ -86,7 +86,7 @@
               <div class="bg-cover-left intro-img h-100 section-img-1" />
             </div>
             <div class="col-md-7">
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-center">
                 <div class="intro-text">
                   <p>
                     人生約有三分之一的時間花在睡眠，而睡面品質和寢具的選擇有很大的關係。
@@ -124,7 +124,7 @@
             :class="{ active: fadeInRightShow }"
           >
             <div class="col-md-7 order-2 order-md-1">
-              <div class="d-flex flex-row-reverse justify-content-end">
+              <div class="d-flex flex-row-reverse justify-content-center">
                 <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
                     良好的睡眠品質
