@@ -97,7 +97,10 @@
                 </div>
                 <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
-                    為什麼要睡好床<span class="intro-title-qus">?</span>
+                    為什麼要睡好床
+                    <span class="intro-title-qus">
+                      ?
+                    </span>
                   </h2>
                 </div>
               </div>
@@ -430,7 +433,7 @@ $main-color-light: rgba(204, 223, 234, 0.68);
   writing-mode: vertical-rl;
   max-height: 420px;
   padding: 70px 0px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding: 30px 10px 15px 10px;
     writing-mode: horizontal-tb;
   }
@@ -458,7 +461,7 @@ $main-color-light: rgba(204, 223, 234, 0.68);
 .intro-overflow {
   margin-top: -25px;
   margin-bottom: -25px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     margin: 0;
   }
 }
