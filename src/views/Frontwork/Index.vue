@@ -124,7 +124,7 @@
             :class="{ active: fadeInRightShow }"
           >
             <div class="col-md-7 order-2 order-md-1">
-              <div class="d-flex flex-row-reverse justify-content-center">
+              <div class="d-flex flex-row-reverse justify-content-start justify-content-lg-center">
                 <div class="intro-overflow d-none d-md-block">
                   <h2 class="intro-title-column">
                     良好的睡眠品質
