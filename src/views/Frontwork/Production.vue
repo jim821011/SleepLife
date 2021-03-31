@@ -15,14 +15,17 @@
       <div
         v-if="sectionActive === ''"
         class="bg-cover header-img header-img-1"
+        :class="{'fadeIn':sectionActive === ''}"
       />
       <div
         v-if="sectionActive === '床墊'"
         class="bg-cover header-img header-img-2"
+        :class="{'fadeIn':sectionActive === '床墊'}"
       />
       <div
         v-if="sectionActive === '枕頭'"
         class="bg-cover header-img header-img-3"
+        :class="{'fadeIn':sectionActive === '枕頭'}"
       />
     </header>
 
@@ -244,5 +247,17 @@ export default {
 }
 .header-img-3 {
   background-image: url(../../assets/images/bg_7.jpg);
+}
+.fadeIn {
+  opacity: 1;
+  animation: fadeIn-active 1s;
+}
+@keyframes fadeIn-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
